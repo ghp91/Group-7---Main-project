@@ -1,0 +1,58 @@
+CREATE DATABASE musikk avis
+
+CREATE TABLE user_type
+(
+	usertypeID nchar(100) NOT NULL,
+	write binary(1),
+	comment binary(1),
+	admin binary(1),
+	PRIMARY KEY (usertypeID)
+);
+
+CREATE TABLE bruker
+(
+	e_mail nchar(100) NOT NULL,
+	fornavn text NOT NULL,
+	etternavn text NOT NULL,
+	registered DATE NOT NULL,
+	sub_expire DATE,
+	PRIMARY KEY (e_mail),
+	usertypeID nchar(100) FOREIGN KEY REFERENCES user_type(usertypeID)
+);
+
+CREATE TABLE artikkel
+(
+	artikkelID int NOT NULL,
+	tittel text NOT NULL,
+	tekst text NOT NULL,
+	ingress text NOT NULL,
+	PRIMARY KEY (artikkelID),
+	e_mail nchar(100) FOREIGN KEY REFERENCES bruker(e_mail)
+	
+);
+
+CREATE TABLE aliker
+(
+	e_mail nchar(100) FOREIGN KEY REFERENCES bruker(e_mail),
+	PRIMARY KEY (e_mail),
+	artikkelID int FOREIGN KEY REFERENCES artikkel(artikkelID),
+	PRIMARY KEY (artikkelID)
+);
+
+CREATE TABLE kommentar
+(
+	kommentarID int NOT NULL,
+	tittel text NOT NULL,
+	tekst text NOT NULL,
+	PRIMARY KEY (kommentarID),
+	artikkelID int FOREIGN KEY REFERENCES artikkel(artikkelID),
+	e_mail nchar(100) FOREIGN KEY REFERENCES bruker(e_mail)
+);
+
+CREATE TABLE kliker
+(
+	kommentarID int FOREIGN KEY REFERENCES kommentar(kommentarID),
+	PRIMARY KEY (kommentarID),
+	e_mail nchar(100) FOREIGN KEY REFERENCES bruker(e_mail),
+	PRIMARY KEY (e_mail)
+);
