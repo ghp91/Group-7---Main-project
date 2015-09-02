@@ -1,5 +1,4 @@
-CREATE DATABASE musikk avis
-
+use musikkavis
 CREATE TABLE user_type
 (
 	usertypeID nchar(100) NOT NULL,
@@ -34,9 +33,8 @@ CREATE TABLE artikkel
 CREATE TABLE aliker
 (
 	e_mail nchar(100) FOREIGN KEY REFERENCES bruker(e_mail),
-	PRIMARY KEY (e_mail),
 	artikkelID int FOREIGN KEY REFERENCES artikkel(artikkelID),
-	PRIMARY KEY (artikkelID)
+	PRIMARY KEY (artikkelID, e_mail)
 );
 
 CREATE TABLE kommentar
@@ -52,7 +50,6 @@ CREATE TABLE kommentar
 CREATE TABLE kliker
 (
 	kommentarID int FOREIGN KEY REFERENCES kommentar(kommentarID),
-	PRIMARY KEY (kommentarID),
 	e_mail nchar(100) FOREIGN KEY REFERENCES bruker(e_mail),
-	PRIMARY KEY (e_mail)
+	PRIMARY KEY (e_mail, kommentarID)
 );
