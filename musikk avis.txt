@@ -2,9 +2,9 @@ use musikkavis
 CREATE TABLE user_type
 (
 	usertypeID varchar(100) NOT NULL,
-	write boolean NOT NULL,
-	comment boolean NOT NULL,
-	admin boolean NOT NULL,
+	write bit NOT NULL,
+	comment bit NOT NULL,
+	admin bit NOT NULL,
 	PRIMARY KEY (usertypeID)
 );
 
@@ -33,8 +33,8 @@ CREATE TABLE artikkel_bruker
 (
 	e_mail varchar(100) FOREIGN KEY REFERENCES bruker(e_mail),
 	artikkelID int FOREIGN KEY REFERENCES artikkel(artikkelID),
-	artikkel_forfatter boolean NOT NULL,
-	artikkel_liker boolean NOT NULL,
+	artikkel_forfatter bit NOT NULL,
+	artikkel_liker bit NOT NULL,
 	PRIMARY KEY (artikkelID, e_mail)
 );
 
@@ -51,7 +51,7 @@ CREATE TABLE kommentar_bruker
 (
 	kommentarID int FOREIGN KEY REFERENCES kommentar(kommentarID),
 	e_mail varchar(100) FOREIGN KEY REFERENCES bruker(e_mail),
-	kommentar_forfatter boolean NOT NULL,
-	kommentar_liker boolean NOT NULL,
+	kommentar_forfatter bit NOT NULL,
+	kommentar_liker bit NOT NULL,
 	PRIMARY KEY (e_mail, kommentarID)
 );
