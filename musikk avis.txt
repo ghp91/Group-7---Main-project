@@ -1,7 +1,7 @@
 use musikkavis
 CREATE TABLE user_type
 (
-	usertypeID nchar(100) NOT NULL,
+	usertypeID varchar(100) NOT NULL,
 	write binary(1),
 	comment binary(1),
 	admin binary(1),
@@ -10,13 +10,13 @@ CREATE TABLE user_type
 
 CREATE TABLE bruker
 (
-	e_mail nchar(100) NOT NULL,
+	e_mail varchar(100) NOT NULL,
 	fornavn text NOT NULL,
 	etternavn text NOT NULL,
 	registered DATE NOT NULL,
 	sub_expire DATE,
 	PRIMARY KEY (e_mail),
-	usertypeID nchar(100) FOREIGN KEY REFERENCES user_type(usertypeID)
+	usertypeID varchar(100) FOREIGN KEY REFERENCES user_type(usertypeID)
 );
 
 CREATE TABLE artikkel
@@ -26,14 +26,15 @@ CREATE TABLE artikkel
 	tekst text NOT NULL,
 	ingress text NOT NULL,
 	PRIMARY KEY (artikkelID),
-	e_mail nchar(100) FOREIGN KEY REFERENCES bruker(e_mail)
 	
 );
 
 CREATE TABLE aliker
 (
-	e_mail nchar(100) FOREIGN KEY REFERENCES bruker(e_mail),
+	e_mail varchar(100) FOREIGN KEY REFERENCES bruker(e_mail),
 	artikkelID int FOREIGN KEY REFERENCES artikkel(artikkelID),
+	artikkel_forfatter binary(1) NOT NULL,
+	artikkel_liker binary(1) NOT NULL,
 	PRIMARY KEY (artikkelID, e_mail)
 );
 
@@ -44,12 +45,13 @@ CREATE TABLE kommentar
 	tekst text NOT NULL,
 	PRIMARY KEY (kommentarID),
 	artikkelID int FOREIGN KEY REFERENCES artikkel(artikkelID),
-	e_mail nchar(100) FOREIGN KEY REFERENCES bruker(e_mail)
 );
 
-CREATE TABLE kliker
+CREATE TABLE kommentar_bruker
 (
 	kommentarID int FOREIGN KEY REFERENCES kommentar(kommentarID),
-	e_mail nchar(100) FOREIGN KEY REFERENCES bruker(e_mail),
+	e_mail varchar(100) FOREIGN KEY REFERENCES bruker(e_mail),
+	kommentar_forfatter binary(1) NOT NULL,
+	kommentar_liker binary(1) NOT NULL,
 	PRIMARY KEY (e_mail, kommentarID)
 );
