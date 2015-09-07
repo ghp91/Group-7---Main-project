@@ -1,0 +1,44 @@
+/** lage en user_type entitet------ NB: må lages før bruker, trengs som referanse i bruker, se linje 36
+
+USE [musikkavis]
+GO
+
+INSERT INTO [dbo].[user_type]
+           ([usertypeID]
+           ,[write]
+           ,[comment]
+           ,[admin])
+     VALUES
+           ('admin4'
+           ,1
+           ,1
+           ,0);
+GO
+
+/** lage en bruker entitet--------------------------------------------------------------------------------
+
+USE [musikkavis]
+GO
+
+INSERT INTO [dbo].[bruker]
+           ([e_mail]
+           ,[fornavn]
+           ,[etternavn]
+           ,[registered]
+           ,[sub_expire]
+           ,[usertypeID])
+     VALUES
+           ('ga'
+           ,'ga'
+           ,'ga'
+           ,GETDATE()
+           ,getdate()
+		   ,(select usertypeID from user_type where usertypeID= 'admin'));
+           
+GO
+/** velge feltene i bruker, user_type----------------------------------------------------------------------
+/** slette entiteter hvor usertype id'en er lik admin3 eller admin4
+
+select * from bruker
+select * from user_type
+delete from user_type where usertypeID = 'admin3' or usertypeID = 'admin4'
