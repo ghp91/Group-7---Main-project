@@ -29,7 +29,7 @@ CREATE TABLE artikkel
 	
 );
 
-CREATE TABLE aliker
+CREATE TABLE artikkel_bruker
 (
 	e_mail varchar(100) FOREIGN KEY REFERENCES bruker(e_mail),
 	artikkelID int FOREIGN KEY REFERENCES artikkel(artikkelID),
