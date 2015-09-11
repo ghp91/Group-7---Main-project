@@ -1,0 +1,37 @@
+<?php
+$myServer = "localhost";
+$myUser = "user";
+$myPass = "password";
+$myDB = "musikkavis";
+
+//connect to database
+$dbhandle = mssql_connect($myServer, $myUser, $myPass)
+	or die("Couldn't connect to the specified server");
+
+//select a database
+$selected = mssql_select_db($myDB, $dbhandle)
+	or die("Couldn't open the specified database");
+
+//declare SQL queries
+$newUserType = "USE [musikkavis]";
+$newUserType .= "GO";
+$newUserType .= "INSERT INTO [dbo].[user_type]([usertypeID],[write],[comment],[admin])";
+$newUserType .= "VALUES('admin4',1,1,0);";
+$newUserType .= "GO";
+
+$getUserType = "SELECT * FROM user_type";
+
+//execute SQL queries
+$result = mssql_query($getUserType);
+
+$numRows = mssql_num_rows($result);
+echo "<h1>" . $numRows . " Row" . ($numRows == 1 ? "" : "s") . " Returned </h1>";
+
+while ($row = mssql_fetch_array($result))
+{
+	echo "<li>" . $row["usertypeID"] . $row["write"] $row["comment"] . $row["admin"] . "</li>"
+}
+
+//close connnection
+mssql_close($dbhandle);
+?>
