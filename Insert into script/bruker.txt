@@ -1,0 +1,59 @@
+/** lage en bruker entitet--------------------------------------------------------------------------------*/
+INSERT INTO [dbo].[bruker]
+           ([e_mail]
+		   ,[passord]
+           ,[fornavn]
+           ,[etternavn]
+           ,[registered]
+           ,[sub_expire]
+           ,[usertypeID])
+     VALUES
+           ('abonnent@email.com'
+           ,'skriv123'
+		   ,'Frank'
+           ,'Walander'
+           ,GETDATE()
+           ,getdate()
+	   ,(select usertypeID from user_type where usertypeID= 'abonnent'));
+           
+GO
+
+/** lage en bruker entitet--------------------------------------------------------------------------------*/
+INSERT INTO [dbo].[bruker]
+           ([e_mail]
+		   ,[passord]
+           ,[fornavn]
+           ,[etternavn]
+           ,[registered]
+           ,[sub_expire]
+           ,[usertypeID])
+     VALUES
+           ('admin@email.com'
+           ,'Banan123'
+		   ,'Fornavn'
+           ,'Etternavn'
+           ,GETDATE()
+           ,getdate()
+	   ,(select usertypeID from user_type where usertypeID= 'admin'));
+           
+GO
+
+/** lage en bruker entitet--------------------------------------------------------------------------------*/
+INSERT INTO [dbo].[bruker]
+           ([e_mail]
+		   ,[passord]
+           ,[fornavn]
+           ,[etternavn]
+           ,[registered]
+           ,[sub_expire]
+           ,[usertypeID])
+     VALUES
+           ('Fredrik@email.com'
+           ,'Smil123'
+		   ,'Fredrik'
+           ,'Haugen'
+           ,GETDATE()
+           ,getdate()
+	   ,(select usertypeID from user_type where usertypeID= 'journalist'));
+           
+GO

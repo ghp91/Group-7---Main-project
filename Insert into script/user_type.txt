@@ -1,0 +1,52 @@
+/** lage en user_type entitet------ NB: må lages før bruker, trengs som referanse i bruker, se linje 36*/
+
+USE [musikkavis]
+GO
+
+INSERT INTO [dbo].[user_type]
+           ([usertypeID]
+           ,[write]
+           ,[comment]
+           ,[admin])
+     VALUES
+           ('admin'
+           ,0
+           ,0
+           ,1);
+GO
+
+INSERT INTO [dbo].[user_type]
+           ([usertypeID]
+           ,[write]
+           ,[comment]
+           ,[admin])
+     VALUES
+           ('abonnent'
+           ,0
+           ,1
+           ,0);
+GO
+
+INSERT INTO [dbo].[user_type]
+           ([usertypeID]
+           ,[write]
+           ,[comment]
+           ,[admin])
+     VALUES
+           ('bruker'
+           ,0
+	       ,0
+           ,0);
+GO
+
+INSERT INTO [dbo].[user_type]
+           ([usertypeID]
+           ,[write]
+           ,[comment]
+           ,[admin])
+     VALUES
+           ('journalist'
+           ,1
+           ,1
+           ,0);
+GO

@@ -1,0 +1,19 @@
+USE [musikkavis]
+GO
+
+INSERT INTO [dbo].[artikkel]
+           ([artikkelID]
+           ,[tittel]
+           ,[tekst]
+           ,[ingress]
+           ,[a_typeID])
+     VALUES
+           (1
+           ,'tittel'
+           ,'tekst'
+           ,'ingress'
+           ,(select a_typeID from artikkel_type where a_typeID= 'nyheter'));
+GO
+
+
+select * from artikkel
