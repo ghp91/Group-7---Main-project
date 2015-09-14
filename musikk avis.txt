@@ -28,7 +28,7 @@ CREATE TABLE artikkel_type
 
 CREATE TABLE artikkel
 (
-	artikkelID int NOT NULL AUTO_INCREMENT,
+	artikkelID int IDENTITY(1,1) NOT NULL,
 	tittel text NOT NULL,
 	tekst text NOT NULL,
 	ingress text NOT NULL,
