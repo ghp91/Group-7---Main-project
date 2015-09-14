@@ -19,6 +19,12 @@ CREATE TABLE bruker
 	usertypeID varchar(100) FOREIGN KEY REFERENCES user_type(usertypeID)
 );
 
+CREATE TABLE artikkel_type
+(
+	a_typeID varchar(100) NOT NULL,
+	PRIMARY KEY (a_typeID)
+);
+
 CREATE TABLE artikkel
 (
 	artikkelID int NOT NULL,
@@ -26,6 +32,7 @@ CREATE TABLE artikkel
 	tekst text NOT NULL,
 	ingress text NOT NULL,
 	PRIMARY KEY (artikkelID),
+	a_typeID varchar(100) FOREIGN KEY REFERENCES artikkel_type(a_typeID)
 	
 );
 
