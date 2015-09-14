@@ -191,6 +191,11 @@ ol li
   width: 920px;
   background: transparent url(../images/container_footer.png) repeat-x top;}
 
+.ingress
+{
+    font-type: "bold";
+}
+
 #footer
 { width: 880px;
   padding: 0 20px 0 20px;
@@ -247,7 +252,7 @@ ul.links li a:hover
 }
 
 .lavaLampWithImage li.back {
-  background: #444;
+  background: #cc0000;
   height: 28px;
   z-index: 8;
   position: absolute;
