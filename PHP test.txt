@@ -1,5 +1,5 @@
 <?php
-$myServer = "myServer";
+$myServer = "MYSTICVOICE\MYSERVER";
 $myUser = "user";
 $myPass = "password";
 $myDB = "musikkavis";
