@@ -12,21 +12,20 @@ echo "Connected to MSSQL";
 //select a database
 $selected = mssql_select_db($myDB, $dbhandle)
 	or die("Couldn't select the specified database");
+?>
 
-//declare SQL queries
-$getUserType = "SELECT * FROM user_type";
+-----------------------------------------------------------------------------------------
 
-//execute SQL queries
-$result = mssql_query($getUserType);
 
-$numRows = mssql_num_rows($result);
-echo "<h1>" . $numRows . " Row" . ($numRows == 1 ? "" : "s") . " Returned </h1>";
+<?php
+$serverName = "localhost"; //serverName\instanceName
+$connectionInfo = array( "Database"=>"musikkavis", "UID"=>"user", "PWD"=>"password");
+$conn = sqlsrv_connect( $serverName, $connectionInfo);
 
-while ($row = mssql_fetch_array($result))
-{
-	echo "<li>" . $row["usertypeID"] . $row["write"] $row["comment"] . $row["admin"] . "</li>"
+if( $conn ) {
+     echo "Connection established.<br />";
+}else{
+     echo "Connection could not be established.<br />";
+     die( print_r( sqlsrv_errors(), true));
 }
-
-//close connnection
-mssql_close($dbhandle);
 ?>
