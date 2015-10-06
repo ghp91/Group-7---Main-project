@@ -1,31 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>PHP</title>
+	</head>
+
+	<body>
+		<p>Hello World</p>
+	
 <?php
-$myServer = "MYSTICVOICE\MYSERVER";
-$myUser = "user";
-$myPass = "password";
-$myDB = "musikkavis";
 
-//connect to database
-$dbhandle = mssql_connect($myServer, $myUser, $myPass)
-	or die("Couldn't connect to MSSQL");
-echo "Connected to MSSQL";
-
-//select a database
-$selected = mssql_select_db($myDB, $dbhandle)
-	or die("Couldn't select the specified database");
-?>
-
------------------------------------------------------------------------------------------
-
-
-<?php
-$serverName = "localhost"; //serverName\instanceName
-$connectionInfo = array( "Database"=>"musikkavis", "UID"=>"user", "PWD"=>"password");
-$conn = sqlsrv_connect( $serverName, $connectionInfo);
-
-if( $conn ) {
-     echo "Connection established.<br />";
-}else{
-     echo "Connection could not be established.<br />";
-     die( print_r( sqlsrv_errors(), true));
+$serverName = "158.38.193.18,1433"; // eller "(local)"
+$connectionInfo = array( "Database"=>"musikkavis", "UID"=>"test", "PWD"=>"123");
+$conn = sqlsrv_connect( $serverName, $connectionInfo );
+if( $conn === false ) {
+    die( print_r( sqlsrv_errors(), true));
 }
+
+$sql = "SELECT e_mail FROM bruker";
+$stmt = sqlsrv_query( $conn, $sql );
+if( $stmt === false) {
+    die( print_r( sqlsrv_errors(), true) );
+}
+
+while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_NUMERIC) ) {
+      echo $row[0]."<br />";
+}
+
+sqlsrv_free_stmt( $stmt);
+
+
+
+
+
+
+
+
+// $serverName = "(local)";
+// $connectionInfo = array( "Database"=>"musikkavis", "UID"=>"test", "PWD"=>"123");
+// $conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+// if( $conn )
+// {
+     // echo "Connection established.\n";
+
+// }
+// else
+// {
+     // echo "Connection could not be established.\n";
+     // die( print_r( sqlsrv_errors(), true));
+// }
+
+// sqlsrv_close( $conn);
 ?>
+
+
+	
+	</body>
+
+</html>
+
