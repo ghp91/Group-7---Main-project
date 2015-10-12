@@ -14,7 +14,7 @@ INSERT INTO [dbo].[bruker]
            ,'Walander'
            ,GETDATE()
            ,getdate()
-	   ,(select usertypeID from user_type where usertypeID= 'abonnent'));
+	   );
            
 GO
 
@@ -34,7 +34,7 @@ INSERT INTO [dbo].[bruker]
            ,'Etternavn'
            ,GETDATE()
            ,getdate()
-	   ,(select usertypeID from user_type where usertypeID= 'admin'));
+	   );
            
 GO
 
@@ -54,6 +54,6 @@ INSERT INTO [dbo].[bruker]
            ,'Haugen'
            ,GETDATE()
            ,getdate()
-	   ,(select usertypeID from user_type where usertypeID= 'journalist'));
+	   );
            
 GO
