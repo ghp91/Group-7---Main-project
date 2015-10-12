@@ -5,16 +5,14 @@ INSERT INTO [dbo].[bruker]
            ,[fornavn]
            ,[etternavn]
            ,[registered]
-           ,[sub_expire]
-           ,[usertypeID])
+           ,[sub_expire])
      VALUES
            ('abonnent@email.com'
            ,'skriv123'
 		   ,'Frank'
            ,'Walander'
            ,GETDATE()
-           ,getdate()
-	   ,(select usertypeID from user_type where usertypeID= 'abonnent'));
+           ,getdate());
            
 GO
 
@@ -25,16 +23,14 @@ INSERT INTO [dbo].[bruker]
            ,[fornavn]
            ,[etternavn]
            ,[registered]
-           ,[sub_expire]
-           ,[usertypeID])
+           ,[sub_expire])
      VALUES
            ('admin@email.com'
            ,'Banan123'
 		   ,'Fornavn'
            ,'Etternavn'
            ,GETDATE()
-           ,getdate()
-	   ,(select usertypeID from user_type where usertypeID= 'admin'));
+           ,getdate());
            
 GO
 
@@ -45,15 +41,13 @@ INSERT INTO [dbo].[bruker]
            ,[fornavn]
            ,[etternavn]
            ,[registered]
-           ,[sub_expire]
-           ,[usertypeID])
+           ,[sub_expire])
      VALUES
            ('Fredrik@email.com'
            ,'Smil123'
 		   ,'Fredrik'
            ,'Haugen'
            ,GETDATE()
-           ,getdate()
-	   ,(select usertypeID from user_type where usertypeID= 'journalist'));
+           ,getdate());
            
 GO
