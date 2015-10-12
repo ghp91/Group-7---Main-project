@@ -1,12 +1,5 @@
 use musikkavis
-CREATE TABLE user_type
-(
-	usertypeID varchar(100) NOT NULL,
-	write bit NOT NULL,
-	comment bit NOT NULL,
-	admin bit NOT NULL,
-	PRIMARY KEY (usertypeID)
-);
+
 
 CREATE TABLE bruker
 (
@@ -16,8 +9,8 @@ CREATE TABLE bruker
 	etternavn text NOT NULL,
 	registered DATE NOT NULL,
 	sub_expire DATE,
-	PRIMARY KEY (e_mail),
-	usertypeID varchar(100) FOREIGN KEY REFERENCES user_type(usertypeID)
+	PRIMARY KEY (e_mail)
+	
 );
 
 CREATE TABLE artikkel_type
