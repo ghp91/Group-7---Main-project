@@ -1,5 +1,6 @@
 <?php 
-include_once('connectiontest.php');
+session_start();
+include_once('connection.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
@@ -30,10 +31,10 @@ include_once('connectiontest.php');
 	  <div id="menubar">
         <ul class="lavaLampWithImage" id="lava_menu">
           <li class="current"><a href="index.php">Forsiden</a></li>
-          <li><a href="index.php">Nyheter</a></li>
-          <li><a href="index.php">Plater</a></li>
-          <li><a href="index.php">Konserter</a></li>
-          <li><a href="index.php">Min side</a></li>
+          <li><a href="index_template.php">Nyheter</a></li>
+          <li><a href="index_template.php">Plater</a></li>
+          <li><a href="index_template.php">Konserter</a></li>
+          <li><a href="index_template.php">Min side</a></li>
         </ul>
 	    <div id="contact">
 	      <a href="#"><img src="images/icons/twitter.png" alt="Twitter" /></a>
@@ -50,6 +51,41 @@ include_once('connectiontest.php');
     <div id="site_content">
       <div id="content">
         <div class="content_item">
+		
+		
+		<!-- Formstuffs -->
+		<?php echo $_SESSION['epost'];?>
+		<form method="post" action="loginScript.php"> 
+		</table>
+			<br />
+			<hr />        
+			<br /> 
+			<br /> 
+			<table width="400" border="0">
+			<tr>
+				<td>e_mail:</td>
+				<td></td>
+				<td><input type="text" name="e_mail"></td>
+			</tr>
+			<tr>
+				<td> passord:</td>
+			<td></td>
+				<td><input type="password" name = "password"></td>
+			</tr>
+		</table>
+
+		</fieldset>
+		<br />
+		<br /> 
+		<hr />
+		<br />
+		<br />            
+		<input type="submit" name="formSubmit" value="Submit">  <input type="Reset"name="formReset" value="Reset"> 
+		<!-- End of formstuffs -->
+		
+		
+		
+		
           <h1>Tittel på artikkel</h1>
           <h4>This standards compliant, simple, fixed width website template is released as an 'open source' design
               (under the Creative Commons Attribution 3.0 Licence), which means that you are free to download and
