@@ -25,6 +25,7 @@ CREATE TABLE artikkel
 	tittel text NOT NULL,
 	tekst text NOT NULL,
 	ingress text NOT NULL,
+	bildeurl text, NOT NULL,
 	PRIMARY KEY (artikkelID),
 	a_typeID varchar(100) FOREIGN KEY REFERENCES artikkel_type(a_typeID)
 	
