@@ -3,24 +3,25 @@
 	
 <?php
 $serverName = "(local)"; // eller "(local)"
-$connectionInfo = array( "Database"=>"musikkavis", "UID"=>"test", "PWD"=>"123", "CharacterSet" => "UTF-8");
+$connectionInfo = array( "Database"=>"musikkavis", "UID"=>"user", "PWD"=>"password", "CharacterSet" => "UTF-8");
 $conn = sqlsrv_connect( $serverName, $connectionInfo );
 if( $conn === false ) {
     die( print_r( sqlsrv_errors(), true));
 }
 
-//print_r($_POST);
+print_r($_POST);
 
 $query = "INSERT INTO artikkel
            (tittel
            ,tekst
            ,ingress
+           ,bildeurl
            ,a_typeID)
      VALUES
-           (?,?,?,?)";
+           (?,?,?,?,?)";
 		  
 		   
-		   $params = array($_POST['tittel'],$_POST['tekst'],$_POST['ingress'],$_POST['a_typeID']);
+		   $params = array($_POST['tittel'],$_POST['tekst'],$_POST['ingress'],$_POST['bildeurl'],$_POST['a_typeID']);
 $stmt = sqlsrv_query($conn,$query,$params);
 
 
