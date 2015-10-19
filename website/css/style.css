@@ -120,6 +120,11 @@ ol li
   margin: 0 auto;
   padding: 0;
   background: #FFF;}
+  
+#hand
+{ 
+	float: right;
+}
 
 .sidebar_container
 { float: left;
