@@ -1,3 +1,5 @@
+<?php session_start();
+include_once('connection.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
 
@@ -48,12 +50,12 @@
         
             <?php
 
-$serverName = "(local)"; // eller "(local)"
-$connectionInfo = array( "Database"=>"musikkavis", "UID"=>"user", "PWD"=>"password", "CharacterSet"=>"UTF-8" );
-$conn = sqlsrv_connect( $serverName, $connectionInfo );
-if( $conn === false ) {
-    die( print_r( sqlsrv_errors(), true));
-}
+//$serverName = "(local)"; // eller "(local)"
+//$connectionInfo = array( "Database"=>"musikkavis", "UID"=>"user", "PWD"=>"password", "CharacterSet"=>"UTF-8" );
+//$conn = sqlsrv_connect( $serverName, $connectionInfo );
+//if( $conn === false ) {
+//    die( print_r( sqlsrv_errors(), true));
+//}
 
 
         $tsql = "SELECT * FROM artikkel";
