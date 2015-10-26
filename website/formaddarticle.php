@@ -1,15 +1,11 @@
 
-
+<?php
+session_start();
+include_once('connection.php'); 
+?>
 	
 <?php
-$serverName = "(local)"; // eller "(local)"
-$connectionInfo = array( "Database"=>"musikkavis", "UID"=>"user", "PWD"=>"password", "CharacterSet" => "UTF-8");
-$conn = sqlsrv_connect( $serverName, $connectionInfo );
-if( $conn === false ) {
-    die( print_r( sqlsrv_errors(), true));
-}
-
-print_r($_POST);
+//print_r($_POST);
 
 $query = "INSERT INTO artikkel
            (tittel
