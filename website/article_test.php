@@ -57,11 +57,13 @@ include_once('connection.php'); ?>
 //    die( print_r( sqlsrv_errors(), true));
 //}
 
-$id = 49;
+$aid = $_GET["id"];
 
-        $tsql = "SELECT * FROM artikkel where artikkelID = $id";
+        $tsql = "SELECT * FROM artikkel where artikkelID = $aid";
+        $sidebarquery = "SELECT TOP 3 * FROM artikkel ORDER BY artikkelID DESC";
 
 $stmt = sqlsrv_query( $conn, $tsql);
+$sidebar = sqlsrv_query( $conn, $sidebarquery);
 
 if ( $stmt === false ) {
    echo "Error in statement preparation/execution.\n";
@@ -69,12 +71,17 @@ if ( $stmt === false ) {
 }
 
 sqlsrv_fetch( $stmt );
-
 $articleID = sqlsrv_get_field( $stmt, 0 );
 $tittel = sqlsrv_get_field( $stmt, 1 );
 $tekst = sqlsrv_get_field( $stmt, 2 );
 $ingress = sqlsrv_get_field( $stmt, 3 );
 $bildeURL = sqlsrv_get_field( $stmt, 4 );
+
+sqlsrv_fetch ($sidebar);
+$articleID2 = sqlsrv_get_field( $sidebar, 0 );
+$tittel2 = sqlsrv_get_field( $sidebar, 1 );
+$ingress2 = sqlsrv_get_field( $sidebar, 3 );
+
 
 if ( $tittel === false ) {
    die( print_r( sqlsrv_errors(), true ));
@@ -84,43 +91,26 @@ echo '<img src="'.$bildeURL.'">';
 echo '<h4>' . $ingress . '</h4>';
 echo '<p>' . $tekst . '</p>'; 
 
-sqlsrv_close( $conn);
+//sqlsrv_close( $conn);
 ?>
         
         
         
         </div><!--close content_item-->
 	    <div class="sidebar_container">
+                
 		  <div class="sidebar">
             <div class="sidebar_item">
-              <h2>Latest Blog</h2>
-			  <h4>March 2012</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
-		  	  <div class="button_small">
-		        <a href="#">Read more</a>
-		      </div><!--close button_small-->
+              <h2>Siste saker:</h2>
+              <?php 
+                echo '<h3>'.'<font color = white>'.$tittel2.'</font>'.'</h3>'; 
+                echo '<font color = white>'.$ingress2.'</font>'; 
+                echo '<p>'.'<a href="article_test.php?id='.$articleID2.'">'.'Les mer'.'</a>'.'</p>';
+                
+              ?>
             </div><!--close sidebar_item-->
           </div><!--close sidebar-->
-		  <div class="sidebar">
-            <div class="sidebar_item">
-              <h2>Latest Blog</h2>
-			  <h4>March 2012</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
-		  	  <div class="button_small">
-		        <a href="#">Read more</a>
-		      </div><!--close button_small-->
-            </div><!--close sidebar_item-->
-          </div><!--close sidebar-->
-		  <div class="sidebar">
-            <div class="sidebar_item">
-              <h2>Latest Blog</h2>
-			  <h4>March 2012</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
-		  	  <div class="button_small">
-		        <a href="#">Read more</a>
-		      </div><!--close button_small-->
-            </div><!--close sidebar_item-->
-          </div><!--close sidebar-->
+
          </div><!--close sidebar_container-->
          <br style="clear:both;" />
       </div><!--close content-->
