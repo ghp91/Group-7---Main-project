@@ -78,7 +78,8 @@ if ( $tittel === false ) {
 }
 echo '<h1>' . $tittel . '</h1>'; 
 echo '<img src="'.$bildeURL.'">';
-echo $ingress;
+echo '<h4>' . $ingress . '</h4>';
+echo '<p>' . $tekst . '</p>'; 
 
 sqlsrv_close( $conn);
 ?>
