@@ -57,8 +57,9 @@ include_once('connection.php'); ?>
 //    die( print_r( sqlsrv_errors(), true));
 //}
 
+$id = 49;
 
-        $tsql = "SELECT * FROM artikkel";
+        $tsql = "SELECT * FROM artikkel where artikkelID = $id";
 
 $stmt = sqlsrv_query( $conn, $tsql);
 
