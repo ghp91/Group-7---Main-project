@@ -45,16 +45,47 @@
     <div id="site_content">
       <div id="content">
         <div class="content_item">
-          <h1>Tittel på artikkel</h1>
-          <h4>This standards compliant, simple, fixed width website template is released as an 'open source' design
-              (under the Creative Commons Attribution 3.0 Licence), which means that you are free to download and
-              use it for anything you want (including modifying and amending it).</h4><br>
-          <h3>Undertittel</h3>
-          <p>This website template uses the fancybox jquery tool to enhance the website, click on the image to the right to see. </p>
-          <p>Ut tincidunt, ante vel fermentum iaculis, turpis sem pulvinar diam, sit amet ullamcorper nibh dui ac nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos:</p>
-          <p>Vestibulum tempus urna vitae neque vehicula sit amet tristique felis ultrices. Phasellus eu laoreet mauris. Integer sit amet ante nec ipsum euismod hendrerit et eget sapien. Duis velit ante, semper nec dapibus adipiscing, pellentesque vitae orci. Etiam adipiscing, justo ut faucibus placerat, neque libero accumsan ipsum, non pellentesque ligula nibh id justo. Aenean tellus nisl, bibendum vitae sollicitudin id, faucibus ut mi.</p>
-          <p>Vestibulum tempus urna vitae neque vehicula sit amet tristique felis ultrices. Phasellus eu laoreet mauris. Integer sit amet ante nec ipsum euismod hendrerit et eget sapien. Duis velit ante, semper nec dapibus adipiscing, pellentesque vitae orci. Etiam adipiscing, justo ut faucibus placerat, neque libero accumsan ipsum, non pellentesque ligula nibh id justo. Aenean tellus nisl, bibendum vitae sollicitudin id, faucibus ut mi.</p>
-		</div><!--close content_item-->
+        
+            <?php
+
+$serverName = "(local)"; // eller "(local)"
+$connectionInfo = array( "Database"=>"musikkavis", "UID"=>"user", "PWD"=>"password", "CharacterSet"=>"UTF-8" );
+$conn = sqlsrv_connect( $serverName, $connectionInfo );
+if( $conn === false ) {
+    die( print_r( sqlsrv_errors(), true));
+}
+
+
+        $tsql = "SELECT * FROM artikkel";
+
+$stmt = sqlsrv_query( $conn, $tsql);
+
+if ( $stmt === false ) {
+   echo "Error in statement preparation/execution.\n";
+   die( print_r( sqlsrv_errors(), true));
+}
+
+sqlsrv_fetch( $stmt );
+
+$articleID = sqlsrv_get_field( $stmt, 0 );
+$tittel = sqlsrv_get_field( $stmt, 1 );
+$tekst = sqlsrv_get_field( $stmt, 2 );
+$ingress = sqlsrv_get_field( $stmt, 3 );
+$bildeURL = sqlsrv_get_field( $stmt, 4 );
+
+if ( $tittel === false ) {
+   die( print_r( sqlsrv_errors(), true ));
+}
+echo '<h1>' . $tittel . '</h1>'; 
+echo '<img src="'.$bildeURL.'">';
+echo $ingress;
+
+sqlsrv_close( $conn);
+?>
+        
+        
+        
+        </div><!--close content_item-->
 	    <div class="sidebar_container">
 		  <div class="sidebar">
             <div class="sidebar_item">
