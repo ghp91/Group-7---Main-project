@@ -33,11 +33,21 @@ include_once('connection.php');
 	  <div id="menubar">
         <ul class="lavaLampWithImage" id="lava_menu">
           <li class="current"><a href="index.php">Forsiden</a></li>
-          <li><a href="index.php">Nyheter</a></li>
-          <li><a href="index.php">Plater</a></li>
-          <li><a href="index.php">Konserter</a></li>
-          <li><a href="index.php">Min side</a></li>
+          <li><a href="nyheter.php">Nyheter</a></li>
+          <li><a href="plater.php">Plater</a></li>
+          <li><a href="konserter.php">Konserter</a></li>
+          <li><a href="minside.php">Min side</a></li> 
         </ul>
+			<?php
+			if((isset($_SESSION['epost'])))
+			{
+				 echo '<font color = white>'.'logget inn som '.$_SESSION['epost']." ".'</font>'.'<a color =""white" href="/logout.php">Logg ut</a>';
+			}
+			else
+			{
+				 echo '<font>'.'<a href="/login.php">Logg inn</a>'.'/'.'<a href="/adduser.php">Register</a>'.'</font>';
+			}
+			?>
 	  </div><!--close menubar-->
     </div><!--close header-->
 

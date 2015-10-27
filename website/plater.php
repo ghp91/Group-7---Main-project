@@ -48,7 +48,6 @@ include_once('connection.php');
 				 echo '<font>'.'<a href="/login.php">Logg inn</a>'.'/'.'<a href="/adduser.php">Register</a>'.'</font>';
 			}
 			?>
-		</div>
 	  </div><!--close menubar-->
     </div><!--close header-->
 
@@ -61,34 +60,15 @@ include_once('connection.php');
       <div id="content">
         <div class="content_item">
 		
-		<h1> Logg inn </h1>
-		
-		<form method="post" action="loginScript.php"> 
-		</table>
-			<br />
-			<hr />        
-			<br /> 
-			<br /> 
-			<table width="400" border="0">
-			<tr>
-				<td>e_mail:</td>
-				<td></td>
-				<td><input type="text" name="e_mail"></td>
-			</tr>
-			<tr>
-				<td> passord:</td>
-			<td></td>
-				<td><input type="password" name = "password"></td>
-			</tr>
-		</table>
-
-		</fieldset>
-		<br />
-		<br /> 
-		<hr />
-		<br />
-		<br />            
-		<input type="submit" name="formSubmit" value="Submit">  <input type="Reset"name="formReset" value="Reset"> 
+          <h1>Tittel på artikkel</h1>
+          <h4>This standards compliant, simple, fixed width website template is released as an 'open source' design
+              (under the Creative Commons Attribution 3.0 Licence), which means that you are free to download and
+              use it for anything you want (including modifying and amending it).</h4><br>
+          <h3>Undertittel</h3>
+          <p>This website template uses the fancybox jquery tool to enhance the website, click on the image to the right to see. </p>
+          <p>Ut tincidunt, ante vel fermentum iaculis, turpis sem pulvinar diam, sit amet ullamcorper nibh dui ac nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos:</p>
+          <p>Vestibulum tempus urna vitae neque vehicula sit amet tristique felis ultrices. Phasellus eu laoreet mauris. Integer sit amet ante nec ipsum euismod hendrerit et eget sapien. Duis velit ante, semper nec dapibus adipiscing, pellentesque vitae orci. Etiam adipiscing, justo ut faucibus placerat, neque libero accumsan ipsum, non pellentesque ligula nibh id justo. Aenean tellus nisl, bibendum vitae sollicitudin id, faucibus ut mi.</p>
+          <p>Vestibulum tempus urna vitae neque vehicula sit amet tristique felis ultrices. Phasellus eu laoreet mauris. Integer sit amet ante nec ipsum euismod hendrerit et eget sapien. Duis velit ante, semper nec dapibus adipiscing, pellentesque vitae orci. Etiam adipiscing, justo ut faucibus placerat, neque libero accumsan ipsum, non pellentesque ligula nibh id justo. Aenean tellus nisl, bibendum vitae sollicitudin id, faucibus ut mi.</p>
 		</div><!--close content_item-->
 	    <div class="sidebar_container">
 		  <div class="sidebar">
