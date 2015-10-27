@@ -45,7 +45,7 @@ include_once('connection.php');
 			}
 			else
 			{
-				 echo '<font>'.'<a href="/login.php">Logg inn</a>'.'</font>';
+				 echo '<font>'.'<a href="/login.php">Logg inn</a>'.'/'.'<a href="/adduser.php">Register</a>'.'</font>';
 			}
 			?>
 	  </div><!--close menubar-->
