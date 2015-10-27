@@ -30,8 +30,8 @@ include_once('connection.php');
 <body>
     
     <?php
-        $qget  = "SELECT TOP 4 * FROM artikkel order by artikkelID desc";
-        $fget = sqlsrv_query( $conn, $qget);
+        $sideqget  = "SELECT TOP 4 * FROM artikkel order by artikkelID desc";
+        $sidefget = sqlsrv_query( $conn, $sideqget);
 ?>
     
     
@@ -92,7 +92,7 @@ include_once('connection.php');
             <div class="sidebar_item">
               <h2>Siste saker:</h2>
               <?php 
-              while( $row = sqlsrv_fetch_array( $fget, SQLSRV_FETCH_ASSOC)){
+              while( $row = sqlsrv_fetch_array( $sidefget, SQLSRV_FETCH_ASSOC)){
 
                 $articleID2 = $row['artikkelID'];//sqlsrv_get_field( $stmt, 0 );
                 $tittel2 = $row['tittel'];//sqlsrv_get_field( $stmt, 1 );
