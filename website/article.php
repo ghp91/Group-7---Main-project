@@ -112,7 +112,7 @@ echo '<p>' . $tekst . '</p>';
 
                 echo '<br>'.'<h3>'.'<font color = white>'.$tittel2.'</font>'.'</h3>'; 
                 echo '<p>'.'<font color = white>'.$ingress2.'</font>'.'</p>'; 
-                echo '<p>'.'<a href="article_test.php?id='.$articleID2.'">'.'Les mer'.'</a>'.'</p>';
+                echo '<p>'.'<a href="article.php?id='.$articleID2.'">'.'Les mer'.'</a>'.'</p>';
                 echo '<hr>';
                 }
                 sqlsrv_close( $conn);

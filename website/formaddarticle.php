@@ -26,7 +26,9 @@ if ( $stmt === false ) {
    echo "Error in statement preparation/execution.\n";
    die( print_r( sqlsrv_errors(), true));
 } else{
-	echo "Rows affected: ".sqlsrv_rows_affected( $stmt )."\n";
+	//echo "Rows affected: ".sqlsrv_rows_affected( $stmt )."\n";
+        header("Location: index.php");
+    
 }
 
 sqlsrv_fetch( $stmt );
