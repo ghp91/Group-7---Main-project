@@ -128,7 +128,7 @@ include_once('connection.php');
     </div><!--close site_content-->
     <div id="footer">
 	  <div id="footer_content">
-          Copyright Tungrocken 2015. Alle rettigheter. | <a href="contact.php">Kontakt oss</a> | <a href="index.html">Administrator</a>
+          Copyright Tungrocken 2015. Alle rettigheter. | <a href="contact.php">Kontakt oss</a> | <a href="index.php">Administrator</a>
       </div><!--close footer_content-->
     </div><!--close footer-->
   </div><!--close main-->

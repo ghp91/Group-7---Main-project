@@ -32,11 +32,11 @@ include_once('connection.php');
     <div id="header">
 	  <div id="menubar">
         <ul class="lavaLampWithImage" id="lava_menu">
-          <li class="current"><a href="index.html">Forsiden</a></li>
-          <li><a href="index.html">Nyheter</a></li>
-          <li><a href="index.html">Plater</a></li>
-          <li><a href="index.html">Konserter</a></li>
-          <li><a href="index.html">Min side</a></li>
+          <li class="current"><a href="index.php">Forsiden</a></li>
+          <li><a href="index.php">Nyheter</a></li>
+          <li><a href="index.php">Plater</a></li>
+          <li><a href="index.php">Konserter</a></li>
+          <li><a href="index.php">Min side</a></li>
         </ul>
 	  </div><!--close menubar-->
     </div><!--close header-->
@@ -130,7 +130,7 @@ include_once('connection.php');
     </div><!--close site_content-->
     <div id="footer">
 	  <div id="footer_content">
-          Copyright Tungrocken 2015. Alle rettigheter. | <a href="contact.php">Kontakt oss</a> | <a href="index.html">Administrator</a>
+          Copyright Tungrocken 2015. Alle rettigheter. | <a href="contact.php">Kontakt oss</a> | <a href="index.php">Administrator</a>
       </div><!--close footer_content-->
     </div><!--close footer-->
   </div><!--close main-->
