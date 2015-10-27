@@ -60,10 +60,10 @@ include_once('connection.php'); ?>
 $aid = $_GET["id"];
 
         $tsql = "SELECT * FROM artikkel where artikkelID = $aid";
-        $sidebarquery = "SELECT TOP 3 * FROM artikkel ORDER BY artikkelID DESC";
+        $qget  = "SELECT TOP 4 * FROM artikkel order by artikkelID desc";
 
 $stmt = sqlsrv_query( $conn, $tsql);
-$sidebar = sqlsrv_query( $conn, $sidebarquery);
+$fget = sqlsrv_query( $conn, $qget);
 
 if ( $stmt === false ) {
    echo "Error in statement preparation/execution.\n";
@@ -77,10 +77,10 @@ $tekst = sqlsrv_get_field( $stmt, 2 );
 $ingress = sqlsrv_get_field( $stmt, 3 );
 $bildeURL = sqlsrv_get_field( $stmt, 4 );
 
-sqlsrv_fetch ($sidebar);
-$articleID2 = sqlsrv_get_field( $sidebar, 0 );
-$tittel2 = sqlsrv_get_field( $sidebar, 1 );
-$ingress2 = sqlsrv_get_field( $sidebar, 3 );
+
+if ( $tittel === false ) {
+die( print_r( sqlsrv_errors(), true ));
+}
 
 
 if ( $tittel === false ) {
@@ -91,7 +91,7 @@ echo '<img src="'.$bildeURL.'">';
 echo '<h4>' . $ingress . '</h4>';
 echo '<p>' . $tekst . '</p>'; 
 
-//sqlsrv_close( $conn);
+
 ?>
         
         
@@ -103,10 +103,19 @@ echo '<p>' . $tekst . '</p>';
             <div class="sidebar_item">
               <h2>Siste saker:</h2>
               <?php 
-                echo '<h3>'.'<font color = white>'.$tittel2.'</font>'.'</h3>'; 
-                echo '<font color = white>'.$ingress2.'</font>'; 
+              while( $row = sqlsrv_fetch_array( $fget, SQLSRV_FETCH_ASSOC)){
+
+                $articleID2 = $row['artikkelID'];//sqlsrv_get_field( $stmt, 0 );
+                $tittel2 = $row['tittel'];//sqlsrv_get_field( $stmt, 1 );
+                $ingress2 = $row['ingress'];//sqlsrv_get_field( $stmt, 3 );
+
+
+                echo '<br>'.'<h3>'.'<font color = white>'.$tittel2.'</font>'.'</h3>'; 
+                echo '<p>'.'<font color = white>'.$ingress2.'</font>'.'</p>'; 
                 echo '<p>'.'<a href="article_test.php?id='.$articleID2.'">'.'Les mer'.'</a>'.'</p>';
-                
+                echo '<hr>';
+                }
+                sqlsrv_close( $conn);
               ?>
             </div><!--close sidebar_item-->
           </div><!--close sidebar-->
