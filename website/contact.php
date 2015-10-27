@@ -30,49 +30,8 @@ include_once('connection.php');
 <body>
     
     <?php
-
-//$serverName = "(local)"; // eller "(local)"
-//$connectionInfo = array( "Database"=>"musikkavis", "UID"=>"user", "PWD"=>"password", "CharacterSet"=>"UTF-8" );
-//$conn = sqlsrv_connect( $serverName, $connectionInfo );
-//if( $conn === false ) {
-//    die( print_r( sqlsrv_errors(), true));
-//}
-
-$aid = $_GET["id"];
-
-        $tsql = "SELECT * FROM artikkel where artikkelID = $aid";
         $qget  = "SELECT TOP 4 * FROM artikkel order by artikkelID desc";
-
-$stmt = sqlsrv_query( $conn, $tsql);
-$fget = sqlsrv_query( $conn, $qget);
-
-if ( $stmt === false ) {
-   echo "Error in statement preparation/execution.\n";
-   die( print_r( sqlsrv_errors(), true));
-}
-
-sqlsrv_fetch( $stmt );
-$articleID = sqlsrv_get_field( $stmt, 0 );
-$tittel = sqlsrv_get_field( $stmt, 1 );
-$tekst = sqlsrv_get_field( $stmt, 2 );
-$ingress = sqlsrv_get_field( $stmt, 3 );
-$bildeURL = sqlsrv_get_field( $stmt, 4 );
-
-
-if ( $tittel === false ) {
-die( print_r( sqlsrv_errors(), true ));
-}
-
-
-if ( $tittel === false ) {
-   die( print_r( sqlsrv_errors(), true ));
-}
-echo '<h1>' . $tittel . '</h1>'; 
-echo '<img src="'.$bildeURL.'">';
-echo '<h4>' . $ingress . '</h4>';
-echo '<p>' . $tekst . '</p>'; 
-
-
+        $fget = sqlsrv_query( $conn, $qget);
 ?>
     
     
@@ -118,36 +77,28 @@ echo '<p>' . $tekst . '</p>';
             post@tungrocken.no</p>
         </div><!--close content_item-->
 	    <div class="sidebar_container">
+                
 		  <div class="sidebar">
             <div class="sidebar_item">
-              <h2>Latest Blog</h2>
-			  <h4>March 2012</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
-		  	  <div class="button_small">
-		        <a href="#">Read more</a>
-		      </div><!--close button_small-->
+              <h2>Siste saker:</h2>
+              <?php 
+              while( $row = sqlsrv_fetch_array( $fget, SQLSRV_FETCH_ASSOC)){
+
+                $articleID2 = $row['artikkelID'];//sqlsrv_get_field( $stmt, 0 );
+                $tittel2 = $row['tittel'];//sqlsrv_get_field( $stmt, 1 );
+                $ingress2 = $row['ingress'];//sqlsrv_get_field( $stmt, 3 );
+
+
+                echo '<br>'.'<h3>'.'<font color = white>'.$tittel2.'</font>'.'</h3>'; 
+                echo '<p>'.'<font color = white>'.$ingress2.'</font>'.'</p>'; 
+                echo '<p>'.'<a href="article_test.php?id='.$articleID2.'">'.'Les mer'.'</a>'.'</p>';
+                echo '<hr>';
+                }
+                sqlsrv_close( $conn);
+              ?>
             </div><!--close sidebar_item-->
           </div><!--close sidebar-->
-		  <div class="sidebar">
-            <div class="sidebar_item">
-              <h2>Latest Blog</h2>
-			  <h4>March 2012</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
-		  	  <div class="button_small">
-		        <a href="#">Read more</a>
-		      </div><!--close button_small-->
-            </div><!--close sidebar_item-->
-          </div><!--close sidebar-->
-		  <div class="sidebar">
-            <div class="sidebar_item">
-              <h2>Latest Blog</h2>
-			  <h4>March 2012</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus tempor enim.</p>
-		  	  <div class="button_small">
-		        <a href="#">Read more</a>
-		      </div><!--close button_small-->
-            </div><!--close sidebar_item-->
-          </div><!--close sidebar-->
+
          </div><!--close sidebar_container-->
          <br style="clear:both;" />
       </div><!--close content-->
