@@ -64,17 +64,15 @@ include_once('connection.php');
     <div id="site_content">
       <div id="content">
         <div class="content_item">
-		
-          <h1>Tittel på artikkel</h1>
-          <h4>This standards compliant, simple, fixed width website template is released as an 'open source' design
-              (under the Creative Commons Attribution 3.0 Licence), which means that you are free to download and
-              use it for anything you want (including modifying and amending it).</h4><br>
-          <h3>Undertittel</h3>
-          <p>This website template uses the fancybox jquery tool to enhance the website, click on the image to the right to see. </p>
-          <p>Ut tincidunt, ante vel fermentum iaculis, turpis sem pulvinar diam, sit amet ullamcorper nibh dui ac nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos:</p>
-          <p>Vestibulum tempus urna vitae neque vehicula sit amet tristique felis ultrices. Phasellus eu laoreet mauris. Integer sit amet ante nec ipsum euismod hendrerit et eget sapien. Duis velit ante, semper nec dapibus adipiscing, pellentesque vitae orci. Etiam adipiscing, justo ut faucibus placerat, neque libero accumsan ipsum, non pellentesque ligula nibh id justo. Aenean tellus nisl, bibendum vitae sollicitudin id, faucibus ut mi.</p>
-          <p>Vestibulum tempus urna vitae neque vehicula sit amet tristique felis ultrices. Phasellus eu laoreet mauris. Integer sit amet ante nec ipsum euismod hendrerit et eget sapien. Duis velit ante, semper nec dapibus adipiscing, pellentesque vitae orci. Etiam adipiscing, justo ut faucibus placerat, neque libero accumsan ipsum, non pellentesque ligula nibh id justo. Aenean tellus nisl, bibendum vitae sollicitudin id, faucibus ut mi.</p>
-		</div><!--close content_item-->
+          <h1>Kontrollpanel</h1>
+          <p></p>
+          <p><a href="adduser.php"><img src="images/adduser.jpg" width="400" height="150" alt=""/></a>
+          <p><br>
+          <p><a href="addarticle.php"><img src="images/addarticle.jpg" width="400" height="150" alt=""/></a>
+          <p><br>
+          <p><a href="deletearticle.php"><img src="images/deletearticle.jpg" width="400" height="150" alt=""/></a>
+          <p><br>
+</div><!--close content_item-->
 	    <div class="sidebar_container">
                 
 		  <div class="sidebar">
