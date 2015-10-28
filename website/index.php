@@ -29,10 +29,7 @@ include_once('connection.php');
 
 <body>
     
-    <?php
-        $sideqget  = "SELECT TOP 4 * FROM artikkel order by artikkelID desc";
-        $sidefget = sqlsrv_query( $conn, $sideqget);
-    ?>
+
   <div id="main">
     <div id="header">
 	  <div id="menubar">
@@ -65,21 +62,57 @@ include_once('connection.php');
       <div id="content">
         <div class="content_item">
 		
-          <h1>Tittel på artikkel</h1>
-          <h4>This standards compliant, simple, fixed width website template is released as an 'open source' design
-              (under the Creative Commons Attribution 3.0 Licence), which means that you are free to download and
-              use it for anything you want (including modifying and amending it).</h4><br>
-          <h3>Undertittel</h3>
-          <p>This website template uses the fancybox jquery tool to enhance the website, click on the image to the right to see. </p>
-          <p>Ut tincidunt, ante vel fermentum iaculis, turpis sem pulvinar diam, sit amet ullamcorper nibh dui ac nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos:</p>
-          <p>Vestibulum tempus urna vitae neque vehicula sit amet tristique felis ultrices. Phasellus eu laoreet mauris. Integer sit amet ante nec ipsum euismod hendrerit et eget sapien. Duis velit ante, semper nec dapibus adipiscing, pellentesque vitae orci. Etiam adipiscing, justo ut faucibus placerat, neque libero accumsan ipsum, non pellentesque ligula nibh id justo. Aenean tellus nisl, bibendum vitae sollicitudin id, faucibus ut mi.</p>
-          <p>Vestibulum tempus urna vitae neque vehicula sit amet tristique felis ultrices. Phasellus eu laoreet mauris. Integer sit amet ante nec ipsum euismod hendrerit et eget sapien. Duis velit ante, semper nec dapibus adipiscing, pellentesque vitae orci. Etiam adipiscing, justo ut faucibus placerat, neque libero accumsan ipsum, non pellentesque ligula nibh id justo. Aenean tellus nisl, bibendum vitae sollicitudin id, faucibus ut mi.</p>
+<?php
+
+		$qget = "SELECT TOP 10 * FROM artikkel order by artikkelID desc" ;
+$fget = sqlsrv_query( $conn, $qget);
+if ( $fget === false ) {
+   echo "Error in statement preparation/execution.\n";
+   die( print_r( sqlsrv_errors(), true));
+}
+$anumber = 0;
+while( $row = sqlsrv_fetch_array( $fget, SQLSRV_FETCH_ASSOC)){
+		
+$articleID = $row['artikkelID'];//sqlsrv_get_field( $stmt, 0 );
+$tittel = $row['tittel'];//sqlsrv_get_field( $stmt, 1 );
+$tekst = $row['tekst'];//sqlsrv_get_field( $stmt, 2 );
+$ingress = $row['ingress'];//sqlsrv_get_field( $stmt, 3 );
+$bildeURL = $row['bildeurl'];//sqlsrv_get_field( $stmt, 4 );
+
+if ( $tittel === false ) {
+   die( print_r( sqlsrv_errors(), true ));
+}
+if($anumber === 0)
+{
+	echo '<div class = first>';
+}
+else
+{
+	echo '<div class = tablebody>';
+}
+echo '<h1>' .'<a href="article.php?id='.$articleID.'">'.$tittel.'</a>'.'</h1>'; 
+if($anumber === 0)
+{
+	echo '<a href="article.php?id='.$articleID.'">'.'<img src="'.$bildeURL.'">'.'</a>';
+}
+else{
+	echo'<a href="article.php?id='.$articleID.'">'.'<img src="'.$bildeURL.'"' . 'height = "164px" width = "300px"' . '>' . '</a>';
+}
+echo '<h4>' . $ingress . '</h4>';
+echo '</div>';
+$anumber++;
+}
+?>
 		</div><!--close content_item-->
 	    <div class="sidebar_container">
                 
 		  <div class="sidebar">
             <div class="sidebar_item">
               <h2>Siste saker:</h2>
+			      <?php
+        $sideqget  = "SELECT TOP 4 * FROM artikkel order by artikkelID desc";
+        $sidefget = sqlsrv_query( $conn, $sideqget);
+    ?>
               <?php 
               while( $row = sqlsrv_fetch_array( $sidefget, SQLSRV_FETCH_ASSOC)){
 
