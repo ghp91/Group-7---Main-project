@@ -50,7 +50,7 @@ include_once('connection.php');
 			}
 			else
 			{
-				 echo '<font>'.'<a href="/login.php">Logg inn</a>'.'/'.'<a href="/adduser.php">Register</a>'.'</font>';
+				 echo '<font color = white>'.'<a href="/login.php">Logg inn</a>'.'/'.'<a href="/adduser.php">Register</a>'.'</font>';
 			}
 			?>
 	  </div><!--close menubar-->

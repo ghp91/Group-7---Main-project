@@ -51,11 +51,11 @@ a, a:hover
 { background: transparent;
   outline: none;
   text-decoration: none;
-  color: #1D1D1D;}
+  color: #FFFFFF;}
 
 a:hover
-{ text-decoration: none;
-  color: #5D5D5D;}
+{ text-decoration: underline;
+  color: #FFFFFF;}
 
 ul
 { margin: 2px 0 22px 17px;}
