@@ -50,12 +50,12 @@ h6
 a, a:hover
 { background: transparent;
   outline: none;
-  text-decoration: underline;
-  color: #5D5D5D;}
+  text-decoration: none;
+  color: #1D1D1D;}
 
 a:hover
-{ text-decoration: underline;
-  color: #1D1D1D;}
+{ text-decoration: none;
+  color: #5D5D5D;}
 
 ul
 { margin: 2px 0 22px 17px;}
@@ -157,7 +157,7 @@ ol li
 { color: #FFF;}
 
 .sidebar a:hover
-{ text-decoration: none;}
+{ text-decoration: underline;}
 
 .sidebar ul li, .sidebar ul li.selected
 { list-style: none;
