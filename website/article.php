@@ -1,5 +1,10 @@
 <?php session_start();
-include_once('connection.php'); ?>
+include_once('connection.php'); 
+include('restrictAccess.php');
+if(isAdmin()){}
+else if(isJournalist()){}
+else if(isSubscribed()){}
+else {header('Location: login.php');}?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
 

@@ -14,9 +14,9 @@ if($e_mail&&$password)
 	
 	if($numRows != 0)
 	{
-		echo "Du har blitt logget in som ";
 		$_SESSION['epost'] = $e_mail;
 		echo $_SESSION['epost'];
+		header('Location: index.php');
 	}
 	else
 	{
