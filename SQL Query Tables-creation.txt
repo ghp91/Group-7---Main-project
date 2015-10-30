@@ -43,7 +43,7 @@ CREATE TABLE artikkel_bruker
 
 CREATE TABLE kommentar
 (
-	kommentarID int NOT NULL,
+	kommentarID int IDENTITY(1,1) NOT NULL,
 	tittel text NOT NULL,
 	tekst text NOT NULL,
 	PRIMARY KEY (kommentarID),

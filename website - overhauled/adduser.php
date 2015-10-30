@@ -5,8 +5,6 @@ include_once('/structure/header.php');
 include_once('/structure/content.php');
 
 include_once('/phplogic/restrictAccess.php');
-if(isAdmin()){}
-else{header('Location: login.php');}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
@@ -17,6 +15,22 @@ else{header('Location: login.php');}
                 <br>
                 <h1>Registrering av ny bruker:</h1>
     <table width="100%" border="0">
+	<?php if(isAdmin()){ echo '<td>Velg artikkeltype: </td>
+<td>
+	<select id="utype" input name="utype">';
+ $sql = "SELECT utype FROM bruker";
+ $stmt = sqlsrv_query( $conn, $sql );
+ if( $stmt === false) {
+     die( print_r( sqlsrv_errors(), true) );
+ }
+
+ while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
+       echo '<option value="'.$row['utype'].'">'.$row['utype'].'</option>';
+	}
+}
+?>
+	
+ </select></td>
 <tr>
 <td>Brukernavn (epost-adresse):</td>
 <td></td>
