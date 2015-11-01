@@ -59,6 +59,68 @@ echo '<p>' . $tekst . '</p>';
 
 
 ?>
+
+<form method="post" action="formaddcoment.php"> 
+                <br>
+                <h1>Legg til en Kommentar:</h1>
+   <tr>
+<table>
+<br />
+<hr />        
+<br /> 
+<br /> 
+<table width="400" border="0">
+<tr>
+<td>Tittel:</td>
+<td></td>
+<td><input type="text" name="tittel" size="82"></td>
+</tr>
+<tr>
+<td>Tekst:</td>
+<td></td>
+<td><textarea rows="10" cols="80" name="tekst" ></textarea></td>
+</tr>
+<tr>
+</table>
+
+</fieldset>
+<br />
+<br /> 
+<hr />
+<br />
+<br />            
+<input type="readonly" name = "aid" value = <?php echo $aid;?>>
+<input type="submit" name="formSubmit" value="Legg inn">  <input type="Reset"        name="formReset" value="Nullstill"> 
+</form> 
+
+
+<!------------------------------------------Comment section-------------------------------------->
+<?php
+$qget = "SELECT TOP 10 * FROM kommentar order by kommentarID desc" ;
+$fget = sqlsrv_query( $conn, $qget);
+if ( $fget === false ) {
+   echo "Error in statement preparation/execution.\n";
+   die( print_r( sqlsrv_errors(), true));
+}
+$anumber = 0;
+while( $row = sqlsrv_fetch_array( $fget, SQLSRV_FETCH_ASSOC)){
+		
+$comentID = $row['kommentarID'];//sqlsrv_get_field( $stmt, 0 );
+$tittel = $row['tittel'];//sqlsrv_get_field( $stmt, 1 );
+$tekst = $row['tekst'];//sqlsrv_get_field( $stmt, 2 );
+
+if ( $tittel === false ) {
+   die( print_r( sqlsrv_errors(), true ));
+}
+	echo '<div class = first>';
+
+echo '<h1>'.$tittel.'</a>'.'</h1>'; 
+echo '<h4>' . $ingress . '</h4>';
+echo '</div>';
+$anumber++;
+}
+?>
+<!------------------------------------------End of Comment section------------------------------->
 <!------------------------------------------And ends here---------------------------------------->
  
 <?php content();//Also contains a refference to the separate sidebar file ?>
