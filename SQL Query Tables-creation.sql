@@ -8,6 +8,7 @@ CREATE TABLE bruker
 	etternavn text NOT NULL,
 	registered DATE NOT NULL,
 	sub_expire DATE,
+	utype int, 
 	PRIMARY KEY (e_mail)
 	
 );
