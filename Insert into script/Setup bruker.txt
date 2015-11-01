@@ -1,10 +1,10 @@
 use musikkavis
 
 INSERT INTO bruker  (e_mail,passord,fornavn,etternavn,registered,sub_expire,utype) 
-VALUES ('Admin@musikkavis.no','adminpass','Admin','Admin',GETDATE(),GETDATE(),1)
+VALUES ('admin@musikkavis.no','adminpass','Admin','Admin',GETDATE(),GETDATE(),1)
 
 INSERT INTO bruker  (e_mail,passord,fornavn,etternavn,registered,sub_expire,utype) 
-VALUES ('Journalist@musikkavis.no','Journalistpass','Journalist','Journalist',GETDATE(),GETDATE(),2)
+VALUES ('journalist@musikkavis.no','Journalistpass','Journalist','Journalist',GETDATE(),GETDATE(),2)
 
 INSERT INTO bruker  (e_mail,passord,fornavn,etternavn,registered,sub_expire,utype) 
-VALUES ('Subscriber@musikkavis.no','subscriberpass','Subscriber','Subscriber',GETDATE(),GETDATE(),1)
+VALUES ('subscriber@musikkavis.no','subscriberpass','Subscriber','Subscriber',GETDATE(),GETDATE(),1)
