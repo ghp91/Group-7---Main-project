@@ -62,7 +62,7 @@ echo '<p>' . $tekst . '</p>';
 
 <form method="post" action="formaddcoment.php<?php echo '?id='.$aid;?>"> 
                 <br>
-                <h1>Legg til en Kommentar:</h1>
+                <h1>Legg til en kommentar:</h1>
    <tr>
 <table>
 <br />
