@@ -101,7 +101,6 @@ if ( $fget2 === false ) {
    echo "Error in statement preparation/execution.\n";
    die( print_r( sqlsrv_errors(), true));
 }
-$anumber = 0;
 while( $row2 = sqlsrv_fetch_array( $fget2, SQLSRV_FETCH_ASSOC)){
 		
 $comentID2 = $row2['kommentarID'];//sqlsrv_get_field( $stmt, 0 );
@@ -116,7 +115,6 @@ if ( $tittel2 === false ) {
 echo '<h1>'.$tittel2.'</h1>'; 
 echo '<h4>'.$tekst2.'</h4>';
 echo '</div>';
-$anumber++;
 }
 ?>
 <!------------------------------------------End of Comment section------------------------------->
