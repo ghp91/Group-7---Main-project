@@ -16,7 +16,7 @@ function sidebar(){
                 $ingress2 = $row['ingress'];//sqlsrv_get_field( $stmt, 3 );
 
 
-                echo '<br>'.'<h3>'.'<font color = white>'.$tittel2.'</font>'.'</h3>'; 
+                echo '<br>'.'<h3>'.'<font color = white>'.'<a href="article.php?id='.$articleID2.'">'.$tittel2.'</a>'.'</font>'.'</h3>'; 
                 echo '<p>'.'<font color = white>'.$ingress2.'</font>'.'</p>'; 
                 echo '<p>'.'<a href="article.php?id='.$articleID2.'">'.'Les mer'.'</a>'.'</p>';
                 echo '<hr>';
