@@ -107,13 +107,23 @@ $comentID2 = $row2['kommentarID'];//sqlsrv_get_field( $stmt, 0 );
 $tittel2 = $row2['tittel'];//sqlsrv_get_field( $stmt, 1 );
 $tekst2 = $row2['tekst'];//sqlsrv_get_field( $stmt, 2 );
 
+$commenterGet = sqlsrv_query($conn,"SELECT e_mail FROM kommentar_bruker WHERE kommentarID = ".$comentID2." AND kommentar_forfatter = 'true'");
+if ( $commenterGet === false ) {
+   echo "Error in statement preparation/execution.\n";
+   die( print_r( sqlsrv_errors(), true));
+}
+
+sqlsrv_fetch( $commenterGet );
+$userMail = sqlsrv_get_field( $commenterGet, 0);
+
 if ( $tittel2 === false ) {
    die( print_r( sqlsrv_errors(), true ));
 }
-	echo '<div class = first>';
+	echo '<div class = commentfield>';
 
 echo '<h1>'.$tittel2.'</h1>'; 
 echo '<h4>'.$tekst2.'</h4>';
+echo '<p> Skrevet av '.$userMail. '</p>';
 echo '</div>';
 }
 ?>
