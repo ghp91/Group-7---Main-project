@@ -1,5 +1,6 @@
 use musikkavis
 
+
 CREATE TABLE bruker
 (
 	e_mail varchar(100) NOT NULL,
@@ -8,7 +9,7 @@ CREATE TABLE bruker
 	etternavn text NOT NULL,
 	registered DATE NOT NULL,
 	sub_expire DATE,
-	utype int, 
+	utype int,
 	PRIMARY KEY (e_mail)
 	
 );
@@ -27,7 +28,8 @@ CREATE TABLE artikkel
 	ingress text NOT NULL,
 	bildeurl text NOT NULL,
 	PRIMARY KEY (artikkelID),
-	a_typeID varchar(100) FOREIGN KEY REFERENCES artikkel_type(a_typeID)
+	a_typeID varchar(100) FOREIGN KEY REFERENCES artikkel_type(a_typeID),
+	datePosted DATE NOT NULL
 	
 );
 
@@ -42,11 +44,12 @@ CREATE TABLE artikkel_bruker
 
 CREATE TABLE kommentar
 (
-	kommentarID int NOT NULL,
+	kommentarID int IDENTITY(1,1) NOT NULL,
 	tittel text NOT NULL,
 	tekst text NOT NULL,
 	PRIMARY KEY (kommentarID),
 	artikkelID int FOREIGN KEY REFERENCES artikkel(artikkelID),
+	dateComented DATE NOT NULL
 );
 
 CREATE TABLE kommentar_bruker
