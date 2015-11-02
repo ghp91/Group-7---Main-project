@@ -15,8 +15,8 @@ $query = "INSERT INTO kommentar
      VALUES
            (?,?,?,?); SELECT SCOPE_IDENTITY()";
 		  
-		   
-		   $params = array($_POST['tittel'],$_POST['tekst'],$_POST['aid'],$datePosted);
+		   $aid = $_GET["id"];
+		   $params = array($_POST['tittel'],$_POST['tekst'],$aid,$datePosted);
 $stmt = sqlsrv_query($conn,$query,$params);
 echo $_POST['aid'];
 
@@ -53,7 +53,7 @@ if ( $stmt2 === false ) {
    die( print_r( sqlsrv_errors(), true));
 } else{
 	echo "Rows affected: ".sqlsrv_rows_affected( $stmt )."\n";
-	$location = "Location: article.php?id=".$_POST['aid'];
+	$location = "Location: article.php?id=".$aid;
         header($location);
     
 }
