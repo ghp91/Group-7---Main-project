@@ -1,6 +1,6 @@
 <?php
 
-$serverName = "MYSTICVOICE\MYSERVER"; // eller "(local)"
+$serverName = "(local)"; // eller "(local)"
 $connectionInfo = array( "Database"=>"musikkavis", "UID"=>"user", "PWD"=>"password", "CharacterSet"=>"UTF-8" );
 $conn = sqlsrv_connect( $serverName, $connectionInfo );
 if( $conn === false ) {
