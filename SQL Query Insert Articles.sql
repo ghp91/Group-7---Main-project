@@ -6,7 +6,8 @@ INSERT INTO [dbo].[artikkel]
            ,[ingress]
            ,[tekst]
 		   ,[bildeurl]
-           ,[a_typeID])
+           ,[a_typeID]
+		   ,[datePosted])
      VALUES
            ('Konsertanmeldelse: <br>
 			AC/DC - Reduserte, men maksimale'
@@ -94,7 +95,9 @@ Tanken på at det kanskje er den siste gang vi ser dette i Norge – flammene p�
  Kanoner! (Tolv i tallet; seks bakpå scenen og seks ute på sidene). Johnsons aller mest blodskutte, ballesprengte, pissetrengte «yeah, yeah, yeeeeeah». Kanonene låter relativt spinkle, det er så. Men det gjør ikke Angus, som står for nok en oppvisning på SGen. Godt å få sett dette på norsk jord igjen. Forrige gang de var her oppe, var de sterkt forsinket på grunn av sen landing på Gardemoen – og vi ble snytt for avslutningen (og kanonene!).</p>
 <strong>MORTEN STÅLE NILSEN</strong>'
 		   ,'/images/ACDC1.jpg'
-           ,(select a_typeID from artikkel_type where a_typeID= 'konserter'));
+           ,(select a_typeID from artikkel_type where a_typeID= 'konserter')
+		   ,GETDATE());
+
 GO
 
 INSERT INTO [dbo].[artikkel]
@@ -102,7 +105,8 @@ INSERT INTO [dbo].[artikkel]
            ,[ingress]
            ,[tekst]
 		   ,[bildeurl]
-           ,[a_typeID])
+           ,[a_typeID]
+		   ,[datePosted])
      VALUES
            ('Plateanmeldelse: <br>
 AC/DC - «Rock Or Bust»'
@@ -134,7 +138,8 @@ Som vanlig er på «nyere» AC/DC-album, det vil si de fra de siste 35 årene, l
 
 <strong>MORTEN STÅLE NILSEN</strong>'
 		   ,'/images/ACDC2.jpg'
-           ,(select a_typeID from artikkel_type where a_typeID= 'plater'));
+           ,(select a_typeID from artikkel_type where a_typeID= 'plater')
+		   ,GETDATE());
 GO
 
 INSERT INTO [dbo].[artikkel]
@@ -142,7 +147,8 @@ INSERT INTO [dbo].[artikkel]
            ,[ingress]
            ,[tekst]
 		   ,[bildeurl]
-           ,[a_typeID])
+           ,[a_typeID]
+		   ,[datePosted])
      VALUES
            ('Ozzy & co. tar farvel i Norge'
            ,'Ozzy Osborne og resten av Black Sabbath avslutter karrieren i Norge til sommeren.'
@@ -164,7 +170,8 @@ For han er det selvsagt en annen oppside av at Black Sabbath tar turen til Halde
 
 <strong>Mathias Lunde Kristoffersen </strong>'
 		   ,'/images/BlackSabbath.jpg'
-           ,(select a_typeID from artikkel_type where a_typeID= 'nyheter'));
+           ,(select a_typeID from artikkel_type where a_typeID= 'nyheter')
+		   ,GETDATE());
 GO
 
 INSERT INTO [dbo].[artikkel]
@@ -172,7 +179,8 @@ INSERT INTO [dbo].[artikkel]
            ,[ingress]
            ,[tekst]
 		   ,[bildeurl]
-           ,[a_typeID])
+           ,[a_typeID]
+		   ,[datePosted])
      VALUES
            ('Når dommedagsklokkene ringer til fest'
            ,'Tre album ut i karrieren er Ghost verdensherredømme nært'
@@ -191,7 +199,8 @@ INSERT INTO [dbo].[artikkel]
 <p>Meliora vokser seg etter hver lytt til noe som kan stå igjen som et referansepunkt for hvordan fengende hardrock kunne briljere også på 2010-tallet, mange år etter maskefall. Åpne stadiondørene, nå.</p>
 <strong>JØRGEN HEGSTAD</strong>'
 		   ,'/images/Ghost.jpg'
-           ,(select a_typeID from artikkel_type where a_typeID= 'plater'));
+           ,(select a_typeID from artikkel_type where a_typeID= 'plater')
+		   ,GETDATE());
 GO
 
 
@@ -200,7 +209,8 @@ INSERT INTO [dbo].[artikkel]
            ,[ingress]
            ,[tekst]
 		   ,[bildeurl]
-           ,[a_typeID])
+           ,[a_typeID]
+		   ,[datePosted])
      VALUES
            ('Plateanmeldelse:<br>
 Iron Maiden – «The Book Of Souls»'
@@ -226,7 +236,8 @@ Låten fremstår litt unødvendig og i overkant dommedagsdyster. Jeg mer enn ane
 Oppskriften er gammel, resultatet heldigvis forfriskende og nytt hver gang.</p>
 <strong>STEIN ØSTBØ</strong>'
 		   ,'/images/IronMaiden1.jpg'
-           ,(select a_typeID from artikkel_type where a_typeID= 'plater'));
+           ,(select a_typeID from artikkel_type where a_typeID= 'plater')
+		   ,GETDATE());
 GO
 
 INSERT INTO [dbo].[artikkel]
@@ -234,7 +245,8 @@ INSERT INTO [dbo].[artikkel]
            ,[ingress]
            ,[tekst]
 		   ,[bildeurl]
-           ,[a_typeID])
+           ,[a_typeID]
+		   ,[datePosted])
      VALUES
            ('Rockelegender til Norge'
            ,'Neste sommer kan norske fans få hoppe rundt til både «Run To The Hills» og «Number Of The Beast» når Iron Maiden spiller på Telenor Arena.'
@@ -256,7 +268,8 @@ Iron Maiden har siden 1975 laget rockelåter for fans verden over, og sluppet st
 <strong>FELICIA AVLSING</strong>
 '
 		   ,'/images/IronMaiden2.jpg'
-           ,(select a_typeID from artikkel_type where a_typeID= 'nyheter'));
+           ,(select a_typeID from artikkel_type where a_typeID= 'nyheter')
+		   ,GETDATE());
 GO
 
 
@@ -265,7 +278,8 @@ INSERT INTO [dbo].[artikkel]
            ,[ingress]
            ,[tekst]
 		   ,[bildeurl]
-           ,[a_typeID])
+           ,[a_typeID]
+		   ,[datePosted])
      VALUES
            ('Konsertanmeldelse:<br> 
 Overbevisende Metallica i Bergen'
@@ -306,7 +320,8 @@ Selvsagt spiller de «Nothing Else Matters» akkurat så sårt at YouTube i dett
 Ah.</p>
 <strong>TOR MARTIN BØE</strong>'
 		   ,'/images/Metallica.jpg'
-           ,(select a_typeID from artikkel_type where a_typeID= 'konserter'));
+           ,(select a_typeID from artikkel_type where a_typeID= 'konserter')
+		   ,GETDATE());
 GO
 
 
@@ -315,7 +330,8 @@ INSERT INTO [dbo].[artikkel]
            ,[ingress]
            ,[tekst]
 		   ,[bildeurl]
-           ,[a_typeID])
+           ,[a_typeID]
+		   ,[datePosted])
      VALUES
            ('Plateanmeldelse: <br>
 Motörhead - «Bad Magic»'
@@ -329,7 +345,8 @@ Motörhead - «Bad Magic»'
 <p>«Thunder & Lightning» og «Evil Eye» kan fort bli nye Motörhead-livefavoritter.</p>
 <strong>TORGRIM ØYRE</strong>'
 		   ,'/images/Motorhead.jpg'
-           ,(select a_typeID from artikkel_type where a_typeID= 'plater'));
+           ,(select a_typeID from artikkel_type where a_typeID= 'plater')
+		   ,GETDATE());
 GO
 
 
@@ -338,7 +355,8 @@ INSERT INTO [dbo].[artikkel]
            ,[ingress]
            ,[tekst]
 		   ,[bildeurl]
-           ,[a_typeID])
+           ,[a_typeID]
+		   ,[datePosted])
      VALUES
            ('Har kranglet i 20 år:<br> 
 Nå snakker Axl Rose og Slash sammen igjen'
@@ -358,7 +376,8 @@ Om den originale Guns N´ Roses noen gang vil oppstå igjen, vil ikke gitaristen
 
 <strong>ISABELLE KARLSEN</strong>'
 		   ,'/images/Slash.jpg'
-           ,(select a_typeID from artikkel_type where a_typeID= 'nyheter'));
+           ,(select a_typeID from artikkel_type where a_typeID= 'nyheter')
+		   ,GETDATE());
 GO
 
 
@@ -367,7 +386,8 @@ INSERT INTO [dbo].[artikkel]
            ,[ingress]
            ,[tekst]
 		   ,[bildeurl]
-           ,[a_typeID])
+           ,[a_typeID]
+		   ,[datePosted])
      VALUES
            ('Sammy Hagar kaller Eddie van Halen for en løgner:<br>
 Hardrock-legender i bitter krangel'
@@ -387,5 +407,6 @@ Det er David Lee Roth som i dag er tilbake bak mikrofonen hos Van Halen, mens Ed
 Med tanke på at Eddies bror, Alex van Halen, sitter bak trommene, har bandnavnet aldri tidligere hatt større relevans enn nå i 2015.</p>
 <strong>STEIN ØSTBØ</strong>'
 		   ,'/images/VanHalen.jpg'
-           ,(select a_typeID from artikkel_type where a_typeID= 'nyheter'));
+           ,(select a_typeID from artikkel_type where a_typeID= 'nyheter')
+		   ,GETDATE());
 GO

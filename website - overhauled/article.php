@@ -60,7 +60,7 @@ echo '<p>' . $tekst . '</p>';
 
 ?>
 
-<form method="post" action="formaddcoment.php"> 
+<form method="post" action="formaddcoment.php<?php echo '?id='.$aid;?>"> 
                 <br>
                 <h1>Legg til en Kommentar:</h1>
    <tr>
@@ -89,33 +89,32 @@ echo '<p>' . $tekst . '</p>';
 <hr />
 <br />
 <br />            
-<input type="readonly" name = "aid" value = <?php echo $aid;?>>
 <input type="submit" name="formSubmit" value="Legg inn">  <input type="Reset"        name="formReset" value="Nullstill"> 
 </form> 
 
 
 <!------------------------------------------Comment section-------------------------------------->
 <?php
-$qget = "SELECT TOP 10 * FROM kommentar order by kommentarID desc" ;
-$fget = sqlsrv_query( $conn, $qget);
-if ( $fget === false ) {
+$qget2 = "SELECT TOP 10 * FROM kommentar WHERE artikkelID = ".$aid."order by kommentarID desc" ;
+$fget2 = sqlsrv_query( $conn, $qget2);
+if ( $fget2 === false ) {
    echo "Error in statement preparation/execution.\n";
    die( print_r( sqlsrv_errors(), true));
 }
 $anumber = 0;
-while( $row = sqlsrv_fetch_array( $fget, SQLSRV_FETCH_ASSOC)){
+while( $row2 = sqlsrv_fetch_array( $fget2, SQLSRV_FETCH_ASSOC)){
 		
-$comentID = $row['kommentarID'];//sqlsrv_get_field( $stmt, 0 );
-$tittel = $row['tittel'];//sqlsrv_get_field( $stmt, 1 );
-$tekst = $row['tekst'];//sqlsrv_get_field( $stmt, 2 );
+$comentID2 = $row2['kommentarID'];//sqlsrv_get_field( $stmt, 0 );
+$tittel2 = $row2['tittel'];//sqlsrv_get_field( $stmt, 1 );
+$tekst2 = $row2['tekst'];//sqlsrv_get_field( $stmt, 2 );
 
-if ( $tittel === false ) {
+if ( $tittel2 === false ) {
    die( print_r( sqlsrv_errors(), true ));
 }
 	echo '<div class = first>';
 
-echo '<h1>'.$tittel.'</a>'.'</h1>'; 
-echo '<h4>' . $ingress . '</h4>';
+echo '<h1>'.$tittel2.'</h1>'; 
+echo '<h4>'.$tekst2.'</h4>';
 echo '</div>';
 $anumber++;
 }
