@@ -36,7 +36,7 @@ include_once('/structure/content.php');
 		<hr />
 		<br />
 		<br />            
-		<input type="submit" name="formSubmit" value="Submit">  <input type="Reset"name="formReset" value="Reset"> 
+		<input type="submit" name="formSubmit" value="Logg på">  <input type="Reset"name="formReset" value="Nullstill"> 
 
 <!------------------------------------------And ends here---------------------------------------->
  
