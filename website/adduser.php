@@ -1,54 +1,36 @@
+<?php 
+session_start();
+include_once('/phplogic/connection.php');
+include_once('/structure/header.php');
+include_once('/structure/content.php');
+
+include_once('/phplogic/restrictAccess.php');
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
+<?php headTag();?>
 
-<head>
-  <title>Tungrocken</title>
-  <meta name="description" content="Musikkavisen Tungrocken" />
-  <meta name="keywords" content="musikk, rock, tungrock, heavy, metal, gitar, konsert, anmeldelser, nyheter" />
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <link rel="icon" type="image/ico" href="images/favicon.ico"> 
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.easing.min.js"></script>
-  <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
-  <script type="text/javascript" src="js/image_fade.js"></script>
-  <script type="text/javascript">
-    $(function() {
-      $("#lava_menu").lavaLamp({
-        fx: "backout",
-        speed: 700
-      });
-    });
-  </script>
-
-</head>
-
-<body>
-  <div id="main">
-    <div id="header">
-	  <div id="menubar">
-        <ul class="lavaLampWithImage" id="lava_menu">
-          <li class="current"><a href="index.php">Forsiden</a></li>
-          <li><a href="index.php">Nyheter</a></li>
-          <li><a href="index.php">Plater</a></li>
-          <li><a href="index.php">Konserter</a></li>
-          <li><a href="index.php">Min side</a></li>
-        </ul>
-	  </div><!--close menubar-->
-    </div><!--close header-->
-
-    <div class="container_header"><p>&nbsp;</p></div>
-      <div id="banner">
-		<div id="banner_content">
-		</div><!--close banner_content-->
-      </div><!--close banner-->
-    <div id="site_content">
-      <div id="content">
-        <div class="content_item">
+<!---------------------------------Content Item starts here-------------------------------------------->
             <form method="post" action="formadduser.php"> 
                 <br>
                 <h1>Registrering av ny bruker:</h1>
     <table width="100%" border="0">
+	<?php if(isAdmin()){ echo '<td>Velg artikkeltype: </td>
+<td>
+	<select id="utype" input name="utype">';
+ $sql = "SELECT utype FROM bruker";
+ $stmt = sqlsrv_query( $conn, $sql );
+ if( $stmt === false) {
+     die( print_r( sqlsrv_errors(), true) );
+ }
+
+ while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
+       echo '<option value="'.$row['utype'].'">'.$row['utype'].'</option>';
+	}
+}
+?>
+	
+ </select></td>
 <tr>
 <td>Brukernavn (epost-adresse):</td>
 <td></td>
@@ -77,18 +59,7 @@
 
 </form>
 
-        </div><!--close content_item-->
-	    
-         <br style="clear:both;" />
-      </div><!--close content-->
-    </div><!--close site_content-->
-    <div id="footer">
-	  <div id="footer_content">
-          Copyright Tungrocken 2015. Alle rettigheter. | <a href="contact.php">Kontakt oss</a> | <a href="admin.php">Administrator</a>
-      </div><!--close footer_content-->
-    </div><!--close footer-->
-  </div><!--close main-->
-  <div class="container_footer">&nbsp;</div>
-  <p style="float: left;padding: 0;">&nbsp;</p>
-</body>
+<!------------------------------------------And ends here---------------------------------------->
+ 
+<?php content();//Also contains a refference to the separate sidebar file ?>
 </html>

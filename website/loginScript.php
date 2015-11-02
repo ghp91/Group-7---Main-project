@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('connection.php');
+include_once('/phplogic/connection.php');
 $e_mail = $_POST['e_mail'];
 $password = $_POST['password'];
 
