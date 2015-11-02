@@ -11,7 +11,7 @@ else{header('Location: login.php');}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
 <?php headTag();?>
-
+  <p>Dette er min side. Her kan du finne informasjon om din bruker</p>
 <!---------------------------------Content Item starts here-------------------------------------------->
 
 <!------------------------------------------And ends here---------------------------------------->
