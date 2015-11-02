@@ -44,7 +44,7 @@ function headTag(){
 			}
 			else
 			{
-				 echo '<font color = white>'.'<a href="/login.php">Logg inn</a>'.'/'.'<a href="/adduser.php">Register</a>'.'</font>';
+				 echo '<font color = white>'.'<a href="/login.php">Logg inn</a>'.'   &nbsp; &nbsp;  '.'<a href="/adduser.php">Registrere</a>'.'</font>';
 			}
 			
 	  echo '</div><!--close menubar-->

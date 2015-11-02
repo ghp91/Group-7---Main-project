@@ -19,12 +19,12 @@ include_once('/structure/content.php');
 			<br /> 
 			<table width="400" border="0">
 			<tr>
-				<td>e_mail:</td>
+				<td>Epost/Brukernavn:</td>
 				<td></td>
 				<td><input type="text" name="e_mail"></td>
 			</tr>
 			<tr>
-				<td> passord:</td>
+				<td> Passord:</td>
 			<td></td>
 				<td><input type="password" name = "password"></td>
 			</tr>
@@ -36,7 +36,7 @@ include_once('/structure/content.php');
 		<hr />
 		<br />
 		<br />            
-		<input type="submit" name="formSubmit" value="Logg på">  <input type="Reset"name="formReset" value="Nullstill"> 
+		<input type="submit" name="formSubmit" value="Logg inn">  <input type="Reset"name="formReset" value="Nullstill"> 
 
 <!------------------------------------------And ends here---------------------------------------->
  
