@@ -40,7 +40,7 @@ function headTag(){
 			
 			if((isset($_SESSION['epost'])))
 			{
-				 echo '<font color = white>'.'logget inn som '.$_SESSION['epost']." ".'</font>'.'<a color =""white" href="/logout.php">Logg ut</a>';
+				 echo '<font color = white>'.'Logget inn som '.$_SESSION['epost']." ".'</font>'.'<br>'.'<a color =""white" href="/logout.php">Logg ut</a>';
 			}
 			else
 			{
