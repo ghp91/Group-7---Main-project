@@ -73,7 +73,7 @@ echo '<p>' . $tekst . '</p>';
 <tr>
 <td>Tittel:</td>
 <td></td>
-<td><input type="text" name="tittel" size="82"></td>
+<td><input type="text" name="tittel" size="78"></td>
 </tr>
 <tr>
 <td>Tekst:</td>
@@ -83,14 +83,14 @@ echo '<p>' . $tekst . '</p>';
 <tr>
 </table>
 
-</fieldset>
-<br />
+
 <br /> 
 <hr />
-<br />
+
 <br />            
 <input type="submit" name="formSubmit" value="Legg inn">  <input type="Reset"        name="formReset" value="Nullstill"> 
 </form> 
+<br />
 
 
 <!------------------------------------------Comment section-------------------------------------->
@@ -121,7 +121,7 @@ if ( $tittel2 === false ) {
 }
 	echo '<div class = commentfield>';
 
-echo '<h1>'.$tittel2.'</h1>'; 
+echo '<h2>'.$tittel2.'</h1>'; 
 echo '<h4>'.$tekst2.'</h4>';
 echo '<p> Skrevet av '.$userMail. '</p>';
 echo '</div>';
