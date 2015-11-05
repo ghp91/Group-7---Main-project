@@ -40,9 +40,9 @@ echo '<p>' .("E-post :") . $e_mail . '</p>';
 echo '<p>' .("Passord :"). $passord . '</p>'; 
 echo '<p>' .("Fornavn :"). $fornavn . '</p>'; 
 echo '<p>' .("Etternavn :"). $etternavn . '</p>'; 
-$registeredtime = $registered->format('Y-m-d'); 
+$registeredtime = $registered->format('d-m-Y'); 
 echo '<p>' .("Registrert dato :"). $registeredtime . '</p>';
-$subexpire = $sub_expire->format('Y-m-d'); 
+$subexpire = $sub_expire->format('d-m-Y'); 
 echo '<p>'.("Abonnement utgår :") . $subexpire . '</p>';
 
 ?>
