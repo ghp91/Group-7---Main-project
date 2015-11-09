@@ -7,7 +7,7 @@ include_once('/phplogic/compare.php');
 if(comparePasswords($_POST['passord'],$_POST['passord2']))
 {
 $query = "UPDATE bruker
-SET passord = ".$_POST['passord']."
+SET passord = '".$_POST['passord']."'
 WHERE e_mail = '".$_GET['epost']."'";
 
 $stmt = sqlsrv_query($conn,$query);
