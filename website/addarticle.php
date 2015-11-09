@@ -40,7 +40,6 @@ else{header('Location: login.php');}
  ?>
  </select></td>
 
-                <option value="nyheter">nyheter</option>
  </tr>
 
 </table>
