@@ -4,7 +4,7 @@ function articleContent(){
 	global $conn;
 $aid = $_GET["id"];
 
-        $tsql = "SELECT * FROM artikkel where artikkelID = $aid";
+        $tsql = "SELECT * FROM artikkel where artikkelID = ".$aid;
 
 
 $stmt = sqlsrv_query( $conn, $tsql);
@@ -27,10 +27,6 @@ if ( $tittel === false ) {
 die( print_r( sqlsrv_errors(), true ));
 }
 
-
-if ( $tittel === false ) {
-   die( print_r( sqlsrv_errors(), true ));
-}
 echo '<h1>' . $tittel . '</h1>'; 
 echo '<img src="'.$bildeURL.'">';
 echo '<h4>' . $ingress . '</h4>';

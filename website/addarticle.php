@@ -40,13 +40,7 @@ else{header('Location: login.php');}
  ?>
  </select></td>
 
-
-
-<!-- <select id="a_typeID" input name="a_typeID">                  
-                <option value="konserter">konserter</option>
                 <option value="nyheter">nyheter</option>
-                <option value="plater">plater</option>                 
-    </select></td> -->
  </tr>
 
 </table>

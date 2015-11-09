@@ -15,17 +15,34 @@ include_once('/phplogic/restrictAccess.php');
                 <br>
                 <h1>Registrering av ny bruker:</h1>
     <table width="100%" border="0">
-	<?php if(isAdmin()){ echo '<td>Velg artikkeltype: </td>
+	<?php if(isAdmin()){ echo '<td>Velg Brukertype: </td>
 <td>
 	<select id="utype" input name="utype">';
- $sql = "SELECT utype FROM bruker";
+ $sql = "SELECT DISTINCT utype FROM bruker";
  $stmt = sqlsrv_query( $conn, $sql );
  if( $stmt === false) {
      die( print_r( sqlsrv_errors(), true) );
  }
 
  while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
-       echo '<option value="'.$row['utype'].'">'.$row['utype'].'</option>';
+       echo '<option value="'.$row['utype'].'">';
+	   if($row['utype'] === 0)
+	   {
+		   echo 'ikke betalende bruker';
+	   }
+	   else if($row['utype'] === 1)
+	   {
+		   echo 'admin';
+	   }
+	   else if($row['utype'] === 2)
+	   {
+		   echo 'journalist';
+	   }
+	   else if($row['utype'] === 3)
+	   {
+		   echo 'subscriber';
+	   }
+	   echo '</option>';
 	}
 }
 ?>

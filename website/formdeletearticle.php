@@ -34,10 +34,8 @@ $comentID2 = $row2['kommentarID'];//sqlsrv_get_field( $stmt, 0 );
 		" DELETE FROM kommentar WHERE kommentarID = ".$comentID1;
 	
 		$stmt3 = sqlsrv_query($conn, $deleteComment);
-		if ( $stmt3 === false ) {
-			echo "Error in statement preparation/execution.\n in stmt3";
-			die( print_r( sqlsrv_errors(), true));
-		}
+
+		
 	}
 }
 

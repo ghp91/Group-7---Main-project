@@ -15,20 +15,17 @@ else{header('Location: login.php');}
 <?php headTag();?>
 
 <!---------------------------------Content Item starts here-------------------------------------------->
-<?php
 
-articleContent();
-
-?>
+<?php articleContent();?>
 
 <form method="post" action="formaddcoment.php<?php $aid = $_GET["id"]; echo '?id='.$aid;?>"> 
                
 <?php addComment();?>
 
 <!------------------------------------------Comment section-------------------------------------->
-<?php
-listComments();
-?>
+
+<?php listComments();?>
+
 <!------------------------------------------End of Comment section------------------------------->
 <!------------------------------------------And ends here---------------------------------------->
  

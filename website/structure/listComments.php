@@ -3,6 +3,7 @@
 include_once('/phplogic/connection.php');
 function listComments(){
 	global $conn;
+	
 
 $aid = $_GET["id"];
 $qget2 = "SELECT TOP 10 * FROM kommentar WHERE artikkelID = ".$aid."order by kommentarID desc" ;
@@ -34,6 +35,10 @@ if ( $tittel2 === false ) {
 echo '<h2>'.$tittel2.'</h1>'; 
 echo '<h4>'.$tekst2.'</h4>';
 echo '<p> Skrevet av '.$userMail. '</p>';
+if($userMail === $_SESSION['epost']){
+	echo'<form method="post" action="deleteOwnComment.php?kid='.$comentID2.'&pid='.$aid.'">'; 
+	echo '<input type="submit" name="formSubmit" value="Slett kommentar">';
+}
 echo '</div>';
 }
 }?>
