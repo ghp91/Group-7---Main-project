@@ -1,6 +1,7 @@
 
 <?php
 include_once('/phplogic/connection.php');
+include_once('/phplogic/restrictAccess.php');
 function listComments(){
 	global $conn;
 	
@@ -36,6 +37,10 @@ echo '<h2>'.$tittel2.'</h1>';
 echo '<h4>'.$tekst2.'</h4>';
 echo '<p> Skrevet av '.$userMail. '</p>';
 if($userMail === $_SESSION['epost']){
+	echo'<form method="post" action="deleteOwnComment.php?kid='.$comentID2.'&pid='.$aid.'">'; 
+	echo '<input type="submit" name="formSubmit" value="Slett kommentar">';
+}
+else if(isAdmin()){
 	echo'<form method="post" action="deleteOwnComment.php?kid='.$comentID2.'&pid='.$aid.'">'; 
 	echo '<input type="submit" name="formSubmit" value="Slett kommentar">';
 }
