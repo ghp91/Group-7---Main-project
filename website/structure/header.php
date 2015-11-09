@@ -1,5 +1,6 @@
 <?php
 function headTag(){
+	include_once('/phplogic/restrictAccess.php');
 	echo 
 	'<head>
   <title>Tungrocken</title>
@@ -34,9 +35,15 @@ function headTag(){
           <li class="current"><a href="index.php">Forsiden</a></li>
           <li><a href="nyheter.php">Nyheter</a></li>
           <li><a href="plater.php">Plater</a></li>
-          <li><a href="konserter.php">Konserter</a></li>
-          <li><a href="minside.php">Min side</a></li> 
-        </ul>';
+          <li><a href="konserter.php">Konserter</a></li>';
+		  if((isAdmin())||(isJournalist()))
+		  {
+			echo '<li>'.'<a href="admin.php">Administrator</a>'.'</li>';
+			}
+          else
+		  { 
+				echo '<li>'.'<a href="minside.php">Min side</a>'.'</li>';} 
+        echo '</ul>';
 			
 			if((isset($_SESSION['epost'])))
 			{
