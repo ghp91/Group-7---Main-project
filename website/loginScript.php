@@ -20,12 +20,14 @@ if($e_mail&&$password)
 	}
 	else
 	{
-		echo "Feil e-post eller passord";
+		$missmatch = "missmatch";
+	header("Location: login.php?error=".$missmatch);
 	}
 	
 }
 else
 {
-	echo 'e-post eller passord ikkje oppgitt'; 
+	$missmatch = "missmatch";
+	header("Location: login.php?error=".$missmatch);
 }
 ?>

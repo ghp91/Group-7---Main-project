@@ -32,10 +32,16 @@ include_once('/structure/content.php');
 
 		</fieldset>
 		<br />
+		<?php
+if(isset($_GET['error']))
+{	echo "<strong></br><font color = red>Feil Brukernavn eller passord!</font></strong></br>";	}
+
+?>	
 		<br /> 
 		<hr />
 		<br />
-		<br />            
+		<br />  
+
 		<input type="submit" name="formSubmit" value="Logg inn">  <input type="Reset"name="formReset" value="Nullstill"> 
 
 <!------------------------------------------And ends here---------------------------------------->
