@@ -40,64 +40,49 @@ echo '<p>' .("E-post :") . $e_mail . '</p>';
 echo '<p>' .("Passord :"). $passord . '</p>'; 
 echo '<p>' .("Fornavn :"). $fornavn . '</p>'; 
 echo '<p>' .("Etternavn :"). $etternavn . '</p>'; 
-$registeredtime = $registered->format('d-m-Y'); 
+$registeredtime = $registered->format('d.m.Y'); 
 echo '<p>' .("Registrert dato :"). $registeredtime . '</p>';
-$subexpire = $sub_expire->format('d-m-Y'); 
+$subexpire = $sub_expire->format('d.m.Y'); 
 echo '<p>'.("Abonnement utgår :") . $subexpire . '</p>';
 
 ?>
 
-
-
-
-<!---------------------------------Content Item starts here-------------------------------------------->
-            <form method="post" action="formupdateuser.php"> 
-                <br>
-                <h1>Oppdatering av bruker</h1>
-    <table width="100%" border="0">
-	<?php if(isAdmin()){ echo '<td>Velg artikkeltype: </td>
-<td>
-	<select id="utype" input name="utype">';
- $sql = "select utype FROM bruker";
- $stmt = sqlsrv_query( $conn, $sql );
+			<form method="post" action="formupdateuser.php?epost=<?php echo $_SESSION['epost']; ?>">
+			<br>
+                <h3>Oppdatering av passord:</h3>
+<?php 
+$sql = "SELECT utype FROM bruker";
+$stmt = sqlsrv_query( $conn, $sql );
  if( $stmt === false) {
      die( print_r( sqlsrv_errors(), true) );
  }
-
- while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
-       echo '<option value="'.$row['utype'].'">'.$row['utype'].'</option>';
+while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
+     
 	}
-}
-?>
-	
- </select></td>
-<tr>
-<td>Nytt brukernavn(epost-adresse):</td>
-<td></td>
-<td><input type="email" name="e_mail"></td>
-</tr>
+
+if(isset($_GET['error']))
+{	echo "Pass på at passordene er like </br>";	}	?>
 <tr>
 <td>Nytt Passord:</td>
 <td></td>
 <td><input type="password" name = "passord"></td>
 </tr>
-<tr>
-<td>Endre fornavn:</td>
 <td></td>
-<td><input type="text" name = "fornavn"></td>
-</tr>
-<tr>
-<td>Endre etternavn:</td>
+</br>
+<td>Bekreft Passord:</td>
 <td></td>
-<td><input type="text" name = "etternavn"></td>
+<td><input type="password" name = "passord2"></td>
 </tr>
+<td></td>
+</br>
 
-
-</table>
-    <br><br><br>
-    <input type="submit" name="formSubmit" value="Oppdater">  <input type="Reset"        name="formReset" value="Nullstill"> 
-
+<td><input type="submit" name = "somebutton" value = "Registrer endring"></td>
+</tr>
 </form>
+
+
+
+
 
 <!------------------------------------------And ends here---------------------------------------->
  
