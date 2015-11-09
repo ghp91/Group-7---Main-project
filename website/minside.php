@@ -49,7 +49,7 @@ echo '<p>'.("Abonnement utgår :") . $subexpire . '</p>';
 
 			<form method="post" action="formupdateuser.php?epost=<?php echo $_SESSION['epost']; ?>">
 			<br>
-                <h3>Oppdatering av passord:</h3>
+                
 <?php 
 $sql = "SELECT utype FROM bruker";
 $stmt = sqlsrv_query( $conn, $sql );
@@ -60,8 +60,26 @@ while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
      
 	}
 
-if(isset($_GET['error']))
-{	echo "Pass på at passordene er like </br>";	}	?>
+if(isset($_GET['missmatch']))
+{	echo "<strong><font color=red>Pass på at passordene er like. </br></br></font></strong>";	}	
+else if(isset($_GET['wrongpass'])) 
+{ echo "<strong><font color=red>Det gamle passordet ditt var feil. </br></br></font></strong>";}?>
+<table>
+<tr>
+<td>
+<h3>Oppdatering av passord:</h3>
+</td>
+</tr>
+
+
+<tr>
+<td>Gammelt Passord:</td>
+<td></td>
+<td><input type="password" name = "gpassord"></td>
+</tr>
+<td></td>
+</br>
+
 <tr>
 <td>Nytt Passord:</td>
 <td></td>
@@ -69,6 +87,8 @@ if(isset($_GET['error']))
 </tr>
 <td></td>
 </br>
+
+<tr>
 <td>Bekreft Passord:</td>
 <td></td>
 <td><input type="password" name = "passord2"></td>
@@ -76,12 +96,11 @@ if(isset($_GET['error']))
 <td></td>
 </br>
 
+<tr>
 <td><input type="submit" name = "somebutton" value = "Registrer endring"></td>
 </tr>
+</table>
 </form>
-
-
-
 
 
 <!------------------------------------------And ends here---------------------------------------->
