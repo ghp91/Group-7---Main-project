@@ -62,4 +62,15 @@ include_once('connection.php');
 		}
 		else{return false;}
 	}
+	function isNoob()
+	{
+	if(isset($_SESSION['epost']))
+		{
+			if($_SESSION['utype'] === 0)
+			{return true;}
+			else{return false;}
+		}
+		else{return false;}
+	}
+
 ?>

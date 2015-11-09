@@ -8,7 +8,14 @@ include_once('/structure/listComments.php');
 include_once('/structure/addComment.php');
 include_once('/phplogic/restrictAccess.php');
 if(isAny()){}
-else{header('Location: login.php');}
+else if(isNoob())
+{
+	header('Location: minside.php');
+}
+else
+{
+	header('Location: login.php');
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
