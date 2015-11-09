@@ -2,11 +2,12 @@
 session_start();
 include_once('/phplogic/connection.php'); 
 include_once('/phplogic/restrictAccess.php');
+include_once('/phplogic/compare.php'); 
 ?>
 
 	
 <?php
-
+if(comparePasswords($_POST['passord'],$_POST['passord2'])){
 $registered =date('Y-m-d G:i:s');
 $futureDate=date('Y-m-d', strtotime('+1 year'));
 $utype = 0;
@@ -36,6 +37,11 @@ if ( $stmt === false ) {
 }
 
 sqlsrv_fetch( $stmt );
-
+}
+else
+{
+	$missmatch = "missmatch";
+	header("Location: adduser.php?error=".$missmatch);
+}
 ?>
 	

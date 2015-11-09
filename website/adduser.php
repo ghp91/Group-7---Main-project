@@ -59,6 +59,11 @@ include_once('/phplogic/restrictAccess.php');
 <td><input type="password" name = "passord"></td>
 </tr>
 <tr>
+<td>Bekreft passord:</td>
+<td></td>
+<td><input type="password" name = "passord2"></td>
+</tr>
+<tr>
 <td>Fornavn:</td>
 <td></td>
 <td><input type="text" name = "fornavn"></td>
@@ -68,9 +73,13 @@ include_once('/phplogic/restrictAccess.php');
 <td></td>
 <td><input type="text" name = "etternavn"></td>
 </tr>
-
-
 </table>
+<?php
+if(isset($_GET['error']))
+{	echo "<strong></br><font color = red>Pass på at passordene er like! </font></strong>";	}
+
+
+?>	
     <br><br><br>
     <input type="submit" name="formSubmit" value="Registrere">  <input type="Reset"        name="formReset" value="Nullstill"> 
 
