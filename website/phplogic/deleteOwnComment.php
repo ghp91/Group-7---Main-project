@@ -1,7 +1,7 @@
 
 
 <?php
-include_once('/phplogic/connection.php');
+include_once('/connection.php');
 global $conn;
 $kID = $_GET["kid"];
 $pID = $_GET["pid"];
@@ -15,6 +15,6 @@ if ( $stmt === false ) {
    die( print_r( sqlsrv_errors(), true ));
 
 }
-$location = "Location: article.php?id=".$pID;
+$location = "Location: /article.php?id=".$pID;
         header($location);
 ?>
