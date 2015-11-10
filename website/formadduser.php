@@ -2,7 +2,7 @@
 session_start();
 include_once('/phplogic/connection.php'); 
 include_once('/phplogic/restrictAccess.php');
-include_once('/phplogic/compare.php'); 
+include_once('/phplogic/passwordScripts.php'); 
 ?>
 
 	
