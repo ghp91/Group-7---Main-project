@@ -1,5 +1,5 @@
 <?php 
-include_once('/phplogic/connection.php');
+include_once('/connection.php');
 function comparePasswords($password1, $password2)
 {
 	$result = false;

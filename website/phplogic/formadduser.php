@@ -31,9 +31,11 @@ $query = "INSERT INTO bruker  (e_mail
 if ( $stmt === false ) {
    echo "Error in statement preparation/execution.\n";
    die( print_r( sqlsrv_errors(), true));
+} else if(isAdmin()){
+	$added = "added";
+	header("Location: /adduser.php?added=".$added."&e_mail=".$_POST['e_mail']);
 } else{
-	//echo "Rows affected: ".sqlsrv_rows_affected( $stmt )."\n";
-        header("Location: thankyou.html");
+        header("Location: /thankyou.html");
 }
 
 sqlsrv_fetch( $stmt );
