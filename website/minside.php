@@ -37,7 +37,6 @@ if ( $e_mail === false ) {
 }
 
 echo '<p>' .("E-post: ") . $e_mail . '</p>';
-echo '<p>' .("Passord: "). $passord . '</p>';
 echo '<p>' .("Fornavn: "). $fornavn . '</p>';
 echo '<p>' .("Etternavn: "). $etternavn . '</p>';
 $registeredtime = $registered->format('d.m.Y');
