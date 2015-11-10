@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once('/phplogic/connection.php');
 include_once('/structure/header.php');
@@ -17,10 +17,10 @@ else{header('Location: login.php');}
 <p>Du kan også endre på informasjonen du har lagt inn</p>
 
 <h3> Din bruker: </h3>
-<?php 
+<?php
 	$qsl = "select * FROM bruker where e_mail = '".$_SESSION['epost']."'" ;
 	$query = sqlsrv_query($conn, $qsl);
-	
+
 	sqlsrv_fetch( $query );
 $e_mail= sqlsrv_get_field( $query, 0 );
 $passord= sqlsrv_get_field( $query, 1 );
@@ -36,34 +36,34 @@ if ( $e_mail === false ) {
    die( print_r( sqlsrv_errors(), true ));
 }
 
-echo '<p>' .("E-post :") . $e_mail . '</p>'; 
-echo '<p>' .("Passord :"). $passord . '</p>'; 
-echo '<p>' .("Fornavn :"). $fornavn . '</p>'; 
-echo '<p>' .("Etternavn :"). $etternavn . '</p>'; 
-$registeredtime = $registered->format('d.m.Y'); 
-echo '<p>' .("Registrert dato :"). $registeredtime . '</p>';
-$subexpire = $sub_expire->format('d.m.Y'); 
-echo '<p>'.("Abonnement utgår :") . $subexpire . '</p>';
+echo '<p>' .("E-post: ") . $e_mail . '</p>';
+echo '<p>' .("Passord: "). $passord . '</p>';
+echo '<p>' .("Fornavn: "). $fornavn . '</p>';
+echo '<p>' .("Etternavn: "). $etternavn . '</p>';
+$registeredtime = $registered->format('d.m.Y');
+echo '<p>' .("Registrert dato: "). $registeredtime . '</p>';
+$subexpire = $sub_expire->format('d.m.Y');
+echo '<p>'.("Abonnement utgår: ") . $subexpire . '</p>';
 
 ?>
 
 			<form method="post" action="formupdateuser.php?epost=<?php echo $_SESSION['epost']; ?>">
 			<br>
-                
-<?php 
+
+<?php
 $sql = "SELECT utype FROM bruker";
 $stmt = sqlsrv_query( $conn, $sql );
  if( $stmt === false) {
      die( print_r( sqlsrv_errors(), true) );
  }
 while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
-     
+
 	}
 
 if(isset($_GET['missmatch']))
-{	echo "<strong><font color=red>Pass på at passordene er like. </br></br></font></strong>";	}	
-else if(isset($_GET['wrongpass'])) 
-{ echo "<strong><font color=red>Det gamle passordet ditt var feil. </br></br></font></strong>";}?>
+{	echo "<strong><font color=red>Pass på at passordene er like! </br></br></font></strong>";	}
+else if(isset($_GET['wrongpass']))
+{ echo "<strong><font color=red>Det gamle passordet ditt var feil! Vennligst prøv på nytt.</br></br></font></strong>";}?>
 <table>
 <tr>
 <td>
@@ -104,6 +104,6 @@ else if(isset($_GET['wrongpass']))
 
 
 <!------------------------------------------And ends here---------------------------------------->
- 
+
 <?php content();//Also contains a refference to the separate sidebar file ?>
 </html>
