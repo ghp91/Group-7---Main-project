@@ -46,7 +46,7 @@ echo '<p>'.("Abonnement utgår: ") . $subexpire . '</p>';
 
 ?>
 
-			<form method="post" action="formupdateuser.php?epost=<?php echo $_SESSION['epost']; ?>">
+			<form method="post" action="phplogic/formupdatepassword.php?epost=<?php echo $_SESSION['epost']; ?>">
 			<br>
 
 <?php
