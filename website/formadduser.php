@@ -1,11 +1,11 @@
 <?php
 session_start();
-include_once('/phplogic/connection.php'); 
+include_once('/phplogic/connection.php');
 include_once('/phplogic/restrictAccess.php');
 include_once('/phplogic/passwordScripts.php'); 
 ?>
 
-	
+
 <?php
 if(comparePasswords($_POST['passord'],$_POST['passord2'])){
 $registered =date('Y-m-d G:i:s');
@@ -17,7 +17,7 @@ $query = "INSERT INTO bruker  (e_mail
            ,etternavn
            ,registered
            ,sub_expire
-		   ,utype) VALUES   
+		   ,utype) VALUES
            (?,?,?,?,?,?,?)";
 		   if(isAdmin())
 		   {
@@ -33,7 +33,7 @@ if ( $stmt === false ) {
    die( print_r( sqlsrv_errors(), true));
 } else{
 	//echo "Rows affected: ".sqlsrv_rows_affected( $stmt )."\n";
-        header("Location: thankyou.html");    
+        header("Location: thankyou.html");
 }
 
 sqlsrv_fetch( $stmt );
@@ -44,4 +44,3 @@ else
 	header("Location: adduser.php?error=".$missmatch);
 }
 ?>
-	
