@@ -11,7 +11,7 @@ include_once('/structure/content.php');
 <!---------------------------------Content Item starts here-------------------------------------------->
 		<h1> Logg inn </h1>
 		
-		<form method="post" action="loginScript.php"> 
+		<form method="post" action="/phplogic/loginScript.php"> 
 		</table>
 			<br />
 			<hr />        

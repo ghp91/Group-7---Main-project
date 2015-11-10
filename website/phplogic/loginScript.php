@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('/phplogic/connection.php');
+include_once('/connection.php');
 $e_mail = $_POST['e_mail'];
 $password = $_POST['password'];
 
@@ -16,18 +16,18 @@ if($e_mail&&$password)
 	{
 		$_SESSION['epost'] = $e_mail;
 		echo $_SESSION['epost'];
-		header('Location: index.php');
+		header('Location: /index.php');
 	}
 	else
 	{
 		$missmatch = "missmatch";
-	header("Location: login.php?error=".$missmatch);
+	header("Location: /login.php?error=".$missmatch);
 	}
 	
 }
 else
 {
 	$missmatch = "missmatch";
-	header("Location: login.php?error=".$missmatch);
+	header("Location: /login.php?error=".$missmatch);
 }
 ?>
