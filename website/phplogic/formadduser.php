@@ -1,8 +1,8 @@
 <?php
 session_start();
-include_once('/phplogic/connection.php');
-include_once('/phplogic/restrictAccess.php');
-include_once('/phplogic/passwordScripts.php'); 
+include_once('/connection.php');
+include_once('/restrictAccess.php');
+include_once('/passwordScripts.php'); 
 ?>
 
 
@@ -41,6 +41,6 @@ sqlsrv_fetch( $stmt );
 else
 {
 	$missmatch = "missmatch";
-	header("Location: adduser.php?error=".$missmatch);
+	header("Location: /adduser.php?error=".$missmatch);
 }
 ?>

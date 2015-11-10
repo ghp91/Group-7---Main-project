@@ -11,7 +11,7 @@ include_once('/phplogic/restrictAccess.php');
 <?php headTag();?>
 
 <!---------------------------------Content Item starts here-------------------------------------------->
-            <form method="post" action="formadduser.php"> 
+            <form method="post" action="/phplogic/formadduser.php"> 
                 <br>
                 <h1>Registrering av ny bruker:</h1>
     <table width="100%" border="0">

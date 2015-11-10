@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-include_once('/phplogic/connection.php'); 
+include_once('/connection.php'); 
 ?>
 	
 <?php
@@ -48,7 +48,7 @@ if ( $stmt2 === false ) {
    die(); //print_r( sqlsrv_errors(), true));
 } else{
 	echo "Rows affected: ".sqlsrv_rows_affected( $stmt )."\n";
-        header("Location: index.php");
+        header("Location: /index.php");
     
 }
 

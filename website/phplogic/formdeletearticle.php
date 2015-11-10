@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-include_once('/phplogic/connection.php'); 
+include_once('/connection.php'); 
 ?>
 	
 <?php
@@ -65,6 +65,6 @@ if ( $stmt === false ) {
    die( print_r( sqlsrv_errors(), true));
 } 
 	
-        header("Location: deletearticle.php");
+        header("Location: /deletearticle.php");
 
 ?>

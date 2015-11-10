@@ -14,7 +14,7 @@ else{header('Location: login.php');}
 <?php headTag();?>
 
 <!---------------------------------Content Item starts here-------------------------------------------->
- <form method="post" action="formaddarticle.php"> 
+ <form method="post" action="/phplogic/formaddarticle.php"> 
                 <br>
                 <h1>Legge til ny artikkel:</h1>
    <tr>

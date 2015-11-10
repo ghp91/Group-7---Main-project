@@ -25,7 +25,7 @@ else
 
 <?php articleContent();?>
 
-<form method="post" action="formaddcoment.php<?php $aid = $_GET["id"]; echo '?id='.$aid;?>"> 
+<form method="post" action="/phplogic/formaddcoment.php<?php $aid = $_GET["id"]; echo '?id='.$aid;?>"> 
                
 <?php addComment();?>
 
