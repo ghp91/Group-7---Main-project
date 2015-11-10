@@ -1,14 +1,14 @@
 <?php
 function headTag(){
 	include_once('/phplogic/restrictAccess.php');
-	echo 
+	echo
 	'<head>
   <title>Tungrocken</title>
   <meta name="description" content="Musikkavisen Tungrocken" />
   <meta name="keywords" content="musikk, rock, tungrock, heavy, metal, gitar, konsert, anmeldelser, nyheter" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <link rel="icon" type="image/ico" href="images/favicon.ico"> 
+  <link rel="icon" type="image/ico" href="images/favicon.ico">
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/jquery.easing.min.js"></script>
   <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
@@ -25,7 +25,7 @@ function headTag(){
 </head>
 
 <body>
-    
+
 
   <div id="main">
 
@@ -41,10 +41,10 @@ function headTag(){
 			echo '<li>'.'<a href="admin.php">Administrator</a>'.'</li>';
 			}
           else
-		  { 
-				echo '<li>'.'<a href="minside.php">Min side</a>'.'</li>';} 
+		  {
+				echo '<li>'.'<a href="minside.php">Min side</a>'.'</li>';}
         echo '</ul>';
-			
+
 			if((isset($_SESSION['epost'])))
 			{
 				 echo '<font color = white>'.'Logget inn som '.$_SESSION['epost']." ".'</font>'.'<br>'.'<a color =""white" href="/phplogic/logout.php">Logg ut</a>';
@@ -53,14 +53,16 @@ function headTag(){
 			{
 				 echo '<font color = white>'.'<a href="/login.php">Logg inn</a>'.'   &nbsp; &nbsp;  '.'<a href="/adduser.php">Registrere</a>'.'</font>';
 			}
-			
+
 	  echo '</div><!--close menubar-->
     </div><!--close header-->
 	<div class="container_header"><p>&nbsp;</p></div>
-      <div id="banner">
+      <a href="/index.php">
+			<div id="banner">
 		<div id="banner_content">
 		</div><!--close banner_content-->
       </div><!--close banner-->
+			</a>
     <div id="site_content">
       <div id="content">
         <div class="content_item">';}?>
