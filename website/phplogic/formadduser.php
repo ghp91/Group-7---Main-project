@@ -2,7 +2,7 @@
 session_start();
 include_once('/connection.php');
 include_once('/restrictAccess.php');
-include_once('/passwordScripts.php'); 
+include_once('/passwordScripts.php');
 ?>
 
 
@@ -35,7 +35,7 @@ if ( $stmt === false ) {
 	$added = "added";
 	header("Location: /adduser.php?added=".$added."&e_mail=".$_POST['e_mail']);
 } else{
-        header("Location: /thankyou.html");
+        header("Location: /thankyou.php");
 }
 
 sqlsrv_fetch( $stmt );
