@@ -18,8 +18,8 @@ else{header('Location: login.php');}
 <p></p>
 <?php if(isAdmin()){echo'
           <p><a href="adduser.php"><img src="images/adduser.jpg" width="400" height="150" alt=""/></a>
-          <p><br>';
-          <p><a href="edituser.php"><img src="images/edituser.jpg" width="400" height="150" alt=""/></a>
+          <p><br>'.
+          '<p><a href="listusers.php"><img src="images/edituser.jpg" width="400" height="150" alt=""/></a>
           <p><br>';
 }?>
           <p><a href="addarticle.php"><img src="images/addarticle.jpg" width="400" height="150" alt=""/></a>
