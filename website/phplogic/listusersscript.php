@@ -22,9 +22,10 @@ while( $row = sqlsrv_fetch_array( $fget, SQLSRV_FETCH_ASSOC))
 	   die( print_r( sqlsrv_errors(), true ));
 	}
 	echo '<tr><td>';
-	echo '<a href="edituser.php?id='.$e_mail.'">'.$e_mail.''.'</a></td></div>	
+	echo '<a href="edituser.php?epost='.$e_mail.'">'.$e_mail.''.'</a></td></div>	
 	<td>'.$fornavn.'</td>
-	<td>'.$etternavn.'</td>'; 
+	<td>'.$etternavn.'</td> 
+	<td>'.'<form method=post action=/edituser.php?epost='.$e_mail.'><input type="submit" name="formSubmit" value="Rediger Bruker"></td>'; 
 	echo '</tr>';
 	}
 	echo '</table></div>';
