@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once('/phplogic/connection.php');
 include_once('/structure/header.php');
@@ -11,7 +11,7 @@ include_once('/phplogic/restrictAccess.php');
 <?php headTag();?>
 
 <!---------------------------------Content Item starts here-------------------------------------------->
-            <form method="post" action="/phplogic/formadduser.php"> 
+            <form method="post" action="/phplogic/formadduser.php">
                 <br>
                 <h1>Registrering av ny bruker:</h1>
     <table width="100%" border="0">
@@ -46,7 +46,7 @@ include_once('/phplogic/restrictAccess.php');
 	}
 }
 ?>
-	
+
  </select></td>
 <tr>
 <td>Brukernavn (epost-adresse):</td>
@@ -76,18 +76,18 @@ include_once('/phplogic/restrictAccess.php');
 </table>
 <?php
 if(isset($_GET['added']))
-{ echo "<strong></br><font color = blue>".$_GET['e_mail']." er lagt till! </font></strong>"; }
+{ echo "<strong></br><font color = blue>".$_GET['e_mail']." er lagt til! </font></strong>"; }
 else if(isset($_GET['error']))
 {	echo "<strong></br><font color = red>Pass på at passordene er like! </font></strong>";	}
 
 
-?>	
+?>
     <br><br><br>
-    <input type="submit" name="formSubmit" value="Registrere">  <input type="Reset"        name="formReset" value="Nullstill"> 
+    <input type="submit" name="formSubmit" value="Registrere">  <input type="Reset"        name="formReset" value="Nullstill">
 
 </form>
 
 <!------------------------------------------And ends here---------------------------------------->
- 
+
 <?php content();//Also contains a refference to the separate sidebar file ?>
 </html>
