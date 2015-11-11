@@ -25,6 +25,8 @@ include_once('/phplogic/restrictAccess.php');
  }
 
  while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
+	 if($row['utype'] != 4)
+	 {
        echo '<option value="'.$row['utype'].'">';
 	   if($row['utype'] === 0)
 	   {
@@ -43,6 +45,7 @@ include_once('/phplogic/restrictAccess.php');
 		   echo 'subscriber';
 	   }
 	   echo '</option>';
+	 }
 	}
 }
 ?>
