@@ -7,8 +7,8 @@ $password = $_POST['password'];
 if($e_mail&&$password)
 {
 	$cursorType = array("Scrollable" => SQLSRV_CURSOR_KEYSET);
-	$sqlString = "SELECT e_mail, passord FROM bruker WHERE e_mail=(?) AND passord=(?)";
-	$params = array($e_mail,$password);
+	$sqlString = "SELECT e_mail, passord FROM bruker WHERE e_mail=(?) AND passord=(?) AND utype!=(?)";
+	$params = array($e_mail,$password,4);
 	$query = sqlsrv_query($conn,$sqlString,$params,$cursorType);
 	$numRows = sqlsrv_num_rows($query);
 	

@@ -27,6 +27,8 @@ function userContent($aid){
 	{$brukertype = "Abonent";}
 	if($utype === 0)
 	{$brukertype = "Gjest";}
+	if($utype === 4)
+	{$brukertype = "Deaktivert";}
 	
 	
 	if ( $epost === false ) {
@@ -35,7 +37,7 @@ function userContent($aid){
 	echo '<h1> E-post: ' . $epost . '</h1>'; 
 	echo '<h4> Fornavn: '.$fornavn.'</h4>';
 	echo '<h4> Etternavn: ' . $etternavn . '</h4>';
-	echo '<h4> Bruker type: ' . $brukertype . "<form method=post action=/phplogic/formupdateutype.php?epost=".$epost.">
+	echo '<h4> Bruker type: ' . $brukertype . "<form method=post action=/phplogic/formupdateutype.php?epost=".$epost."&bol=false>
 	<select id=utype input name=utype>";
  $sql = "SELECT DISTINCT utype FROM bruker";
  $stmt = sqlsrv_query( $conn, $sql );
@@ -44,6 +46,8 @@ function userContent($aid){
  }
 
  while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
+	 if($row['utype'] != 4)
+	 {
        echo '<option value="'.$row['utype'].'">';
 	   if($row['utype'] === 0)
 	   {
@@ -62,9 +66,13 @@ function userContent($aid){
 		   echo 'Abonent';
 	   }
 	   echo '</option>';
+	 }
 	}
 
-	echo '<input type="submit" name="formSubmit" value="Endre"></h4>'; 
+	echo '<input type="submit" name="formSubmit" value="Endre"></h4>'.
+	'<form method=post action=/phplogic/formupdateutype.php?epost='.$epost.'&bol=true>
+	<input type="submit" name="formSubmit" value="Slett bruker">';
+	
 }?>
 
 

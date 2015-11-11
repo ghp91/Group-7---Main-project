@@ -4,7 +4,7 @@ include_once('/phplogic/restrictAccess.php');
 function listUsers()
 {
 	global $conn;
-$qget = "SELECT e_mail,fornavn,etternavn FROM bruker order by e_mail DESC" ;
+$qget = "SELECT e_mail,fornavn,etternavn FROM bruker WHERE utype < 4 order by e_mail DESC" ;
 $fget = sqlsrv_query( $conn, $qget);
 if ( $fget === false ) {
    echo "Error in statement preparation/execution.\n";
@@ -25,7 +25,7 @@ while( $row = sqlsrv_fetch_array( $fget, SQLSRV_FETCH_ASSOC))
 	echo '<a href="edituser.php?epost='.$e_mail.'">'.$e_mail.''.'</a></td></div>	
 	<td>'.$fornavn.'</td>
 	<td>'.$etternavn.'</td> 
-	<td>'.'<form method=post action=/edituser.php?epost='.$e_mail.'><input type="submit" name="formSubmit" value="Rediger Bruker"></td>'; 
+	<td>'.'<form method=post action=/edituser.php?epost='.$e_mail.'><input type="submit" name="formSubmit" value="Rediger Bruker"></form></td>'; 
 	echo '</tr>';
 	}
 	echo '</table></div>';
