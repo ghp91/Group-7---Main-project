@@ -48,4 +48,5 @@ if ( $stmt2 === false ) {
 	$location = "Location: /article.php?id=".$aid;
         header($location);
 }
+}
 ?>
