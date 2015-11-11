@@ -75,7 +75,11 @@ include_once('/phplogic/restrictAccess.php');
 </tr>
 </table>
 <?php
-if(isset($_GET['added']))
+if(isset($_GET['exist']))
+{	echo "<strong></br><font color = red>Brukernavn eksisterer! </font></strong>";	}
+else if(isset($_GET['empty']))
+{	echo "<strong></br><font color = red>Pass på at alle feltene er utfylt! </font></strong>";	}
+else if(isset($_GET['added']))
 { echo "<strong></br><font color = blue>".$_GET['e_mail']." er lagt til! </font></strong>"; }
 else if(isset($_GET['error']))
 {	echo "<strong></br><font color = red>Pass på at passordene er like! </font></strong>";	}
