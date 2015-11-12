@@ -26,6 +26,8 @@ else{header('Location: login.php');}
           <p><br>
           <p><a href="deletearticle.php"><img src="images/deletearticle.jpg" width="400" height="150" alt=""/></a>
           <p><br>
+          <p><a href="minside.php"><img src="images/minside.jpg" width="400" height="150" alt=""/></a>
+          <p><br>
 <!------------------------------------------And ends here---------------------------------------->
 
 <?php content();//Also contains a refference to the separate sidebar file ?>
