@@ -27,7 +27,11 @@ else
 
 <form method="post" action="/phplogic/formaddcoment.php<?php $aid = $_GET["id"]; echo '?id='.$aid;?>"> 
                
-<?php addComment();?>
+<?php addComment();
+if(isset($_GET['missmatch'])){
+	echo '<strong></br><font color = red>Fyll ut feltene før du legger inn en kommentar!</font></strong>';
+}
+?>
 
 <!------------------------------------------Comment section-------------------------------------->
 
