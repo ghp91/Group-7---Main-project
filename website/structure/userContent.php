@@ -37,7 +37,7 @@ function userContent($aid){
 	echo '<h1> E-post: ' . $epost . '</h1>'; 
 	echo '<h4> Fornavn: '.$fornavn.'</h4>';
 	echo '<h4> Etternavn: ' . $etternavn . '</h4>';
-	echo '<h4> Bruker type: ' . $brukertype . "<form method=post action=/phplogic/formupdateutype.php?epost=".$epost."&bol=false>
+	echo '<h4> Bruker type: ' . $brukertype . "<form method=post action=/phplogic/formupdateutype.php?epost=".$epost.">
 	<select id=utype input name=utype>";
  $sql = "SELECT DISTINCT utype FROM bruker";
  $stmt = sqlsrv_query( $conn, $sql );
@@ -68,10 +68,11 @@ function userContent($aid){
 	   echo '</option>';
 	 }
 	}
-
-	echo '<input type="submit" name="formSubmit" value="Endre"></h4>'.
-	'<form method=post action=/phplogic/formupdateutype.php?epost='.$epost.'&bol=true>
-	<input type="submit" name="formSubmit" value="Slett bruker">';
+	$value = "value";
+	echo '<input type="submit" name="formSubmit" value="Endre"></form></h4>'.
+	
+	'<form method=post action=/phplogic/formupdateutype.php?epost='.$epost.'&bol='.$value.'>
+	<input type="submit" name="formSubmit" value="Slett bruker"></form>';
 	
 }?>
 

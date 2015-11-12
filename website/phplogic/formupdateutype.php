@@ -3,7 +3,7 @@ session_start();
 include_once('/connection.php'); 
 include_once('/restrictAccess.php');
 include_once('/passwordScripts.php');
-if($_GET['bol'] === true)
+if(isset($_GET['bol']))
 {$utype = 4;}
 else
 {$utype = $_POST['utype'];}
