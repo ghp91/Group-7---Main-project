@@ -43,10 +43,12 @@ if ( $e_mail === false ) {
 echo '<p>' .("E-post: ") . $e_mail . '</p>';
 echo '<p>' .("Fornavn: "). $fornavn . '</p>';
 echo '<p>' .("Etternavn: "). $etternavn . '</p>';
+if((!isAdmin()) && (!isJournalist())){
 $registeredtime = $registered->format('d.m.Y');
 echo '<p>' .("Registrert dato: "). $registeredtime . '</p>';
 $subexpire = $sub_expire->format('d.m.Y');
 echo '<p>'.("Abonnement utgår: ") . $subexpire . '</p>';
+}
 
 ?>
 
