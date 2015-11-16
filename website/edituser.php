@@ -10,6 +10,7 @@ include_once('/structure/content.php');
 <?php headTag();?>
 
 <!---------------------------------Content Item starts here-------------------------------------------->
+<a href="index.php">Hjem </a> -> <a href="admin.php">Admin </a> -> <a>edit user</a>
 <?php userContent($_GET['epost']); ?>
 <!------------------------------------------And ends here---------------------------------------->
  
