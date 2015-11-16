@@ -1,6 +1,5 @@
 use musikkavis
 
-
 CREATE TABLE bruker
 (
 	e_mail varchar(100) NOT NULL,
@@ -11,7 +10,6 @@ CREATE TABLE bruker
 	sub_expire DATE,
 	utype int,
 	PRIMARY KEY (e_mail)
-	
 );
 
 CREATE TABLE artikkel_type
@@ -30,7 +28,6 @@ CREATE TABLE artikkel
 	PRIMARY KEY (artikkelID),
 	a_typeID varchar(100) FOREIGN KEY REFERENCES artikkel_type(a_typeID),
 	datePosted DATE NOT NULL
-	
 );
 
 CREATE TABLE artikkel_bruker

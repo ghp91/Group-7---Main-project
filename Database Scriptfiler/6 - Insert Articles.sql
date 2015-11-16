@@ -1,5 +1,4 @@
 ﻿USE [musikkavis]
-GO
 
 INSERT INTO [dbo].[artikkel]
            ([tittel]
@@ -98,8 +97,6 @@ Tanken på at det kanskje er den siste gang vi ser dette i Norge – flammene p�
            ,(select a_typeID from artikkel_type where a_typeID= 'konserter')
 		   ,GETDATE());
 
-GO
-
 INSERT INTO [dbo].[artikkel]
            ([tittel]
            ,[ingress]
@@ -140,7 +137,6 @@ Som vanlig er på «nyere» AC/DC-album, det vil si de fra de siste 35 årene, l
 		   ,'/images/ACDC2.jpg'
            ,(select a_typeID from artikkel_type where a_typeID= 'plater')
 		   ,GETDATE());
-GO
 
 INSERT INTO [dbo].[artikkel]
            ([tittel]
@@ -172,7 +168,6 @@ For han er det selvsagt en annen oppside av at Black Sabbath tar turen til Halde
 		   ,'/images/BlackSabbath.jpg'
            ,(select a_typeID from artikkel_type where a_typeID= 'nyheter')
 		   ,GETDATE());
-GO
 
 INSERT INTO [dbo].[artikkel]
            ([tittel]
@@ -201,8 +196,6 @@ INSERT INTO [dbo].[artikkel]
 		   ,'/images/Ghost.jpg'
            ,(select a_typeID from artikkel_type where a_typeID= 'plater')
 		   ,GETDATE());
-GO
-
 
 INSERT INTO [dbo].[artikkel]
            ([tittel]
@@ -238,7 +231,6 @@ Oppskriften er gammel, resultatet heldigvis forfriskende og nytt hver gang.</p>
 		   ,'/images/IronMaiden1.jpg'
            ,(select a_typeID from artikkel_type where a_typeID= 'plater')
 		   ,GETDATE());
-GO
 
 INSERT INTO [dbo].[artikkel]
            ([tittel]
@@ -270,7 +262,6 @@ Iron Maiden har siden 1975 laget rockelåter for fans verden over, og sluppet st
 		   ,'/images/IronMaiden2.jpg'
            ,(select a_typeID from artikkel_type where a_typeID= 'nyheter')
 		   ,GETDATE());
-GO
 
 
 INSERT INTO [dbo].[artikkel]
@@ -322,8 +313,6 @@ Ah.</p>
 		   ,'/images/Metallica.jpg'
            ,(select a_typeID from artikkel_type where a_typeID= 'konserter')
 		   ,GETDATE());
-GO
-
 
 INSERT INTO [dbo].[artikkel]
            ([tittel]
@@ -347,8 +336,6 @@ Motörhead - «Bad Magic»'
 		   ,'/images/Motorhead.jpg'
            ,(select a_typeID from artikkel_type where a_typeID= 'plater')
 		   ,GETDATE());
-GO
-
 
 INSERT INTO [dbo].[artikkel]
            ([tittel]
@@ -378,8 +365,6 @@ Om den originale Guns N´ Roses noen gang vil oppstå igjen, vil ikke gitaristen
 		   ,'/images/Slash.jpg'
            ,(select a_typeID from artikkel_type where a_typeID= 'nyheter')
 		   ,GETDATE());
-GO
-
 
 INSERT INTO [dbo].[artikkel]
            ([tittel]
@@ -409,4 +394,3 @@ Med tanke på at Eddies bror, Alex van Halen, sitter bak trommene, har bandnavne
 		   ,'/images/VanHalen.jpg'
            ,(select a_typeID from artikkel_type where a_typeID= 'nyheter')
 		   ,GETDATE());
-GO
