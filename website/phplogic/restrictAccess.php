@@ -26,6 +26,8 @@ include_once('connection.php');
 			return true;
 		else if(isSubscribed())
 			return true;
+		else if (isnoob())
+			return true;
 		else
 			return false;
 		
