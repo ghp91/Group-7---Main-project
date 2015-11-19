@@ -64,8 +64,10 @@ $stmt = sqlsrv_query( $conn, $sql );
 while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
 
 	}
+if(isset($_GET['ok']))
+{	echo "<strong><font color=blue>Passord endret</br></br></font></strong>";	}
 
-if(isset($_GET['missmatch']))
+else if(isset($_GET['missmatch']))
 {	echo "<strong><font color=red>Pass på at passordene er like! </br></br></font></strong>";	}
 else if(isset($_GET['wrongpass']))
 { echo "<strong><font color=red>Det gamle passordet ditt var feil! Vennligst prøv på nytt.</br></br></font></strong>";}?>

@@ -5,7 +5,7 @@ include_once('/restrictAccess.php');
 include_once('/passwordScripts.php');
 if(checkPass($_POST['gpassord']))
 	{
-	if(comparePasswords($_POST['passord'],$_POST['passord2']))
+	if(comparePasswords($_POST['passord'],$_POST['passord2'])&&($_POST['passord']!=""))
 	{
 	$query = "UPDATE bruker
 	SET passord = '".$_POST['passord']."'
@@ -17,23 +17,17 @@ if(checkPass($_POST['gpassord']))
 	   echo "Error in statement preparation/execution.\n";
 	   die( print_r( sqlsrv_errors(), true));
 	} else{
-		//echo "Rows affected: ".sqlsrv_rows_affected( $stmt )."\n";
-			header("Location: /minside.php");    
+			header("Location: /minside.php?ok");    
 	}
-
 	sqlsrv_fetch( $stmt );
 	}
 	else
 	{
-		$missmatch = "missmatch";
-		header("Location: /minside.php?missmatch=".$missmatch);
+		header("Location: /minside.php?missmatch");
 	}
 }
 else
-{
-		{
-		$missmatch = "missmatch";
-		header("Location: /minside.php?wrongpass=".$missmatch);
-	}
+{	
+	header("Location: /minside.php?wrongpass");
 }
 ?>
